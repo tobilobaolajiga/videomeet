@@ -129,11 +129,15 @@ export default function Scheduled({
               {
                 guests && (
                   <ul className="text-[9px] mt-[4px] list-disc mx-4">
-                    {guests.map((guest, index) => (
-                      <li key={index} className="font-semibold font-DMSans">
-                        {guest}
-                      </li>
-                    ))}
+                    {guests.map((guest, index) =>
+                      index == 0 ? (
+                        ''
+                      ) : (
+                        <li key={index} className="font-semibold font-DMSans">
+                          {guest}
+                        </li>
+                      )
+                    )}
                   </ul>
                 )
                 // : (

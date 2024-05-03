@@ -17,7 +17,6 @@
     "flowbite-datepicker": "^1.2.6",
     "moment": "^2.30.1",
     "moment-timezone": "^0.5.45",
-    "node-sass": "^9.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-big-calendar": "^1.11.1",

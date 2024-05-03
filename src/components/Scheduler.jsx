@@ -406,9 +406,9 @@ export default function Scheduler({
                 />
                 {guests ? (
                   <ul className="text-[9px] mt-[4px] list-disc mx-4">
-                    {guests.map((guest, index) => (
-                      <li key={index}>{guest}</li>
-                    ))}
+                    {guests.map((guest, index) =>
+                      index == 0 ? '' : <li key={index}>{guest}</li>
+                    )}
                   </ul>
                 ) : (
                   <img

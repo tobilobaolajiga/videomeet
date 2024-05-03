@@ -1,4 +1,13 @@
+import { useEffect, useState } from 'react';
 import ColorPicker from './ColorPicker';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import RemHour from './RemHour';
+import RemMinutes from './RemMinutes';
+import RemHourTwo from './RemHourTwo';
+import RemMinutesTwo from './RemMinutesTwo';
+import RemPeriod from './RemPeriod';
+import RemPeriodTwo from './RemPeriodTwo';
 export default function Reminder({
   reminder,
   showReminder,
@@ -11,6 +20,25 @@ export default function Reminder({
   handleColorSelect,
   setSelectedColor,
   selectedColor,
+  reminderDate,
+  handleReminderDate,
+  reminderDateTwo,
+  handleReminderDateTwo,
+  hours,
+  minutes,
+  remHour,
+  setRemHour,
+  remHourTwo,
+  setRemHourTwo,
+  remMinutes,
+  setRemMinutes,
+  remMinutesTwo,
+  setRemMinutesTwo,
+  setRemPeriod,
+  setRemPeriodTwo,
+  remPeriod,
+  remPeriodTwo,
+  apm,
 }) {
   const showDesc = () => {
     !showReminder();
@@ -23,6 +51,18 @@ export default function Reminder({
 
     showScheduler();
   };
+  const options = {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
+  };
+  const [date, setDate] = useState(new Date());
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div>
       {reminder && (
@@ -92,26 +132,126 @@ export default function Reminder({
               </ul>
               <div className="py-[10px] px-6 relative">
                 <div>
-                  <p className="text-[10px] pb-[5px] font-semibold">
+                  <p className="text-[10px] pb-[2px] font-semibold">
                     Reminder 1
                   </p>
-                  <button className="flex gap-2 items-center border px-[6px] py-[4px] rounded text-[9px] font-medium mb-[5px]">
-                    <img src="/greyCalendar.svg" alt="" width={13} /> 07-03-2024
-                  </button>
-                  <button className="flex gap-2 items-center border py-[4px] pl-[4px] pr-[23px] rounded text-[9px] font-semibold mb-[5px]">
-                    <img src="/clock.svg" alt="" width={13} /> 2 : 00 am
-                  </button>
+                  <div
+                    className="flex gap-2 items-center tracking-tight relative mb-2 "
+                    id="date"
+                  >
+                    <ReactDatePicker
+                      className="border py-[4px] pl-[24px] font-DMSans w-[90px] outline-none rounded text-[9px] font-semibold cursor-pointer"
+                      selected={reminderDate}
+                      onChange={handleReminderDate}
+                      dateFormat="dd/MM/yyyy"
+                      placeholderText={date.toLocaleString('en-US', options)}
+                    />
+                    <img
+                      src="/greyCalendar.svg"
+                      alt=""
+                      className="absolute left-[6px]"
+                      width={13}
+                    />
+                  </div>
+                  <div
+                    className=" time-picker px-6 py-[4px] mr-2 mt-2 mb-2 flex gap-[4px] items-center border w-[90px]  rounded text-[9px] font-semibold"
+                    id="time"
+                  >
+                    <RemHour
+                      // startHourChange={startHourChange}
+                      hours={hours}
+                      remHour={remHour}
+                      setRemHour={setRemHour}
+                      setRemPeriod={setRemPeriod}
+                    />
+
+                    <p>:</p>
+                    <RemMinutes
+                      // startMinutes={startMinutes}
+                      minutes={minutes}
+                      remMinutes={remMinutes}
+                      setRemMinutes={setRemMinutes}
+                      // startMinutesChange={startMinutesChange}
+                    />
+
+                    <span></span>
+                    <RemPeriod
+                      // startPeriodChange={startPeriodChange}
+                      apm={apm}
+                      // startHour={startHour}
+                      remPeriod={remPeriod}
+                      setRemPeriod={setRemPeriod}
+                    />
+                    <img
+                      src="/clock.svg"
+                      alt=""
+                      className="absolute left-[30px]"
+                      width={13}
+                    />
+                  </div>
                 </div>
                 <div>
-                  <p className="text-[10px] pb-[5px] font-semibold">
+                  <p className="text-[10px] pb-[2px] font-semibold">
                     Reminder 2
                   </p>
-                  <button className="flex gap-2 items-center border px-[6px] py-[4px] rounded text-[9px] font-medium mb-[4px]">
-                    <img src="/greyCalendar.svg" alt="" width={13} /> 07-03-2024
-                  </button>
-                  <button className="flex gap-2 items-center border py-[4px] pl-[4px] pr-[23px] rounded text-[9px] font-semibold mb-[5px]">
-                    <img src="/clock.svg" alt="" width={13} /> 2 : 00 am
-                  </button>
+                  <div
+                    className="flex gap-2 items-center tracking-tight relative mb-2"
+                    id="date"
+                  >
+                    <ReactDatePicker
+                      className="border py-[4px] pl-[24px] font-DMSans w-[90px] outline-none rounded text-[9px] font-semibold cursor-pointer"
+                      selected={reminderDateTwo}
+                      onChange={handleReminderDateTwo}
+                      dateFormat="dd/MM/yyyy"
+                      placeholderText={date.toLocaleString('en-US', options)}
+                    />
+                    <img
+                      src="/greyCalendar.svg"
+                      alt=""
+                      className="absolute left-[6px]"
+                      width={13}
+                    />
+                  </div>
+                  <div
+                    className=" time-picker px-6 py-[4px] mr-2 mt-2 mb-2 flex gap-[4px] items-center border w-[90px]  rounded text-[9px] font-semibold"
+                    id="time"
+                  >
+                    <RemHourTwo
+                      // startHourChange={startHourChange}
+                      hours={hours}
+                      remHourTwo={remHourTwo}
+                      setRemHourTwo={setRemHourTwo}
+                      setRemPeriodTwo={setRemPeriodTwo}
+                      // startHour={startHour}
+                      // setStartHour={setStartHour}
+                      // setStartPeriod={setStartPeriod}
+                    />
+
+                    <p>:</p>
+                    <RemMinutesTwo
+                      // startMinutes={startMinutes}
+                      minutes={minutes}
+                      remMinutesTwo={remMinutesTwo}
+                      setRemMinutesTwo={setRemMinutesTwo}
+                      // startMinutesChange={startMinutesChange}
+                      // setStartMinutes={setStartMinutes}
+                    />
+
+                    <span></span>
+                    <RemPeriodTwo
+                      // startPeriodChange={startPeriodChange}
+                      apm={apm}
+                      // startHour={startHour}
+                      remPeriodTwo={remPeriodTwo}
+                      setRemPeriodTwo={setRemPeriodTwo}
+                    />
+                    <img
+                      src="/clock.svg"
+                      alt=""
+                      className="absolute left-[30px]"
+                      width={13}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

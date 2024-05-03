@@ -20,28 +20,11 @@ export default function VideoLiveStream({
   setIsAudiOn,
   setIsVideoOn,
 }) {
-  // const [admit, setAdmit] = useState(false);
-  // const navigate = useNavigate();
-  // const showAdmit = () => {
-  //   setAdmit(!admit);
-  // };
   const hostAgent = localStorage.getItem('hostAgent');
 
   const [guestRequest, setGuestRequest] = useState(false);
   const socket = ioClient('wss://api-meet.tm-dev.xyz');
   useEffect(() => {
-    // socket.on('joinRoom', (userId) => {
-    //   console.log('MY USER ID:', userId);
-    // });
-    // socket.on('message', (userRequest) => {
-    //   setGuestRequest(true);
-    //   console.log('Guest is requesting to join with user iD:', userRequest.id);
-    //   console.log('Client joined');
-    // });
-    // return () => {
-    //   socket.disconnect();
-    // };
-
     socket.on('connect', () => {
       console.log('Connected to server');
       socket.emit('joinRoom', userId);
@@ -51,11 +34,6 @@ export default function VideoLiveStream({
     socket.on('disconnect', () => {
       console.log('Disconnected from server');
     });
-
-    // Listen for 'joinRoom' event
-    // socket.on('joinRoom', () => {
-    //   console.log('Client joined room');
-    // });
 
     socket.on('message', (data) => {
       toast.success(data.message);

@@ -364,8 +364,9 @@ export default function Schedule({
   const closeMeeting = () => {
     setShowScheduledMeet(false);
   };
+
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden ">
       <div className="bg-white ">
         <div>
           <ProfileNav

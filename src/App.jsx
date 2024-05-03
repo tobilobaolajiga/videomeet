@@ -218,7 +218,7 @@ export default function App() {
       <div>
         <Routes>
           <Route
-            className="max-w-[1400px] w-screen h-screen mx-auto font-DMSans overflow-y-hidden" //
+            className="max-w-[1400px] w-screen h-screen font-DMSans overflow-y-hidden flex items-center justify-center" //
             id="body"
             path="/"
             element={
@@ -264,7 +264,7 @@ export default function App() {
             }
           />
           <Route
-            className="max-w-[1400px] w-screen h-screen mx-auto font-DMSans overflow-y-hidden" //
+            className="max-w-[1400px] w-screen h-screen mx-auto font-DMSans overflow-y-hidden flex items-center justify-center" //
             id="body"
             path="/login"
             element={
@@ -281,6 +281,7 @@ export default function App() {
             }
           />
           <Route
+            className="h-screen w-screen"
             path="/schedule"
             element={
               <Schedule

@@ -26,8 +26,7 @@ export default function CheckCamera({
   const [vidImg, setVidImg] = useState('/video.svg');
   const [displayName, setDisplayName] = useState('');
   const [videoLivestream, setVideoLiveStream] = useState(false);
-  // const meetingDetails = JSON.parse(localStorage.getItem('meetingDetails'));
-  // const [userAgent, setUserAgent] = useState('');
+
   const navigate = useNavigate();
 
   // Get or generate a unique user ID
@@ -35,7 +34,7 @@ export default function CheckCamera({
 
   useEffect(() => {
     const url = window.location.href;
-    const meetingCode = url.substring(32, 68);
+    const meetingCode = url.substring(28, 65);
     localStorage.setItem('meetingCode', meetingCode);
 
     const user = uuidv4();
@@ -48,16 +47,6 @@ export default function CheckCamera({
       const userAgent = localStorage.getItem('userAgent');
       socket.emit('joinRoom', userAgent);
       console.log('jjjjj', userAgent);
-      // if (data.message == 'Allow') {
-      //   navigate(`/video/${meetingCode}`, {
-      //     state: {
-      //       isVideoOn,
-      //       isAudioOn,
-      //       displayName,
-      //       meetingName,
-      //     },
-      //   });
-      // }
     });
 
     // Listen for 'disconnect' event

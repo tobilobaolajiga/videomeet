@@ -178,6 +178,26 @@ export default function Scheduler({
     }
   };
   const [loading, setLoading] = useState(false);
+  const [reminderDate, setReminderDate] = useState(new Date());
+  const [reminderDateTwo, setReminderDateTwo] = useState(new Date());
+  const [remHour, setRemHour] = useState('12');
+  const [remMinutes, setRemMinutes] = useState('00');
+  const [remPeriod, setRemPeriod] = useState('PM');
+  const [remHourTwo, setRemHourTwo] = useState('12');
+  const [remMinutesTwo, setRemMinutesTwo] = useState('00');
+  const [remPeriodTwo, setRemPeriodTwo] = useState('PM');
+
+  const handleReminderDate = (date) => {
+    setReminderDate(date);
+  };
+  const handleReminderDateTwo = (date) => {
+    setReminderDateTwo(date);
+  };
+  useEffect(() => {
+    // Set the selected date to the current date when the component mounts
+    setReminderDate(new Date());
+    setReminderDateTwo(new Date());
+  }, []);
 
   return (
     <div>
@@ -255,16 +275,8 @@ export default function Scheduler({
                   className="px-6 flex gap-2 items-center tracking-tight relative "
                   id="date"
                 >
-                  {/* <button
-                    className="flex gap-2 items-center border px-[6px] py-[4px] rounded text-[9px] font-medium"
-                    onClick={showCalendar}
-                  >
-                    <img src="/greyCalendar.svg" alt="" width={13} />{' '}
-                    {realDate.toLocaleString('en-US', options)}
-                  </button> */}
-
                   <ReactDatePicker
-                    className="border py-[4px] pl-[24px] font-DMSans w-[90px] outline-none rounded text-[9px] font-semibold"
+                    className="border py-[4px] pl-[24px] font-DMSans w-[90px] outline-none rounded text-[9px] font-semibold cursor-pointer"
                     selected={selectedDate}
                     onChange={handleDateChange}
                     dateFormat="dd/MM/yyyy"
@@ -450,6 +462,25 @@ export default function Scheduler({
         colors={colors}
         onSelect={handleColorSelect}
         setSelectedColor={setSelectedColor}
+        reminderDate={reminderDate}
+        handleReminderDate={handleReminderDate}
+        reminderDateTwo={reminderDateTwo}
+        handleReminderDateTwo={handleReminderDateTwo}
+        hours={hours}
+        minutes={minutes}
+        remHour={remHour}
+        setRemHour={setRemHour}
+        remMinutes={remMinutes}
+        setRemMinutes={setRemMinutes}
+        remHourTwo={remHourTwo}
+        setRemHourTwo={setRemHourTwo}
+        remMinutesTwo={remMinutesTwo}
+        setRemMinutesTwo={setRemMinutesTwo}
+        setRemPeriod={setRemPeriod}
+        remPeriod={remPeriod}
+        setRemPeriodTwo={setRemPeriodTwo}
+        remPeriodTwo={remPeriodTwo}
+        apm={apm}
       />
 
       <Scheduled

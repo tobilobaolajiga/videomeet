@@ -236,7 +236,7 @@ export default function Schedule({
   const allScheduledMeetings = async () => {
     try {
       const response = await axios.get(
-        'https://api-meet.tm-dev.xyz/api/v1/meeting/all-schedule-meeting',
+        import.meta.env.VITE_BASE_URL + 'meeting/all-schedule-meeting',
 
         {
           headers: {
@@ -295,7 +295,7 @@ export default function Schedule({
         },
       });
       const response = await axios.post(
-        `https://api-meet.tm-dev.xyz/api/v1/meeting/delete/${eventId}`,
+        import.meta.env.VITE_BASE_URL + `meeting/delete/${eventId}`,
         {},
         {
           headers: {
@@ -322,7 +322,7 @@ export default function Schedule({
   const getDetails = async (eventId) => {
     try {
       const response = await axios.get(
-        `https://api-meet.tm-dev.xyz/api/v1/meeting/particular/${eventId}`,
+        import.meta.env.VITE_BASE_URL + `meeting/particular/${eventId}`,
         {},
         {
           headers: {

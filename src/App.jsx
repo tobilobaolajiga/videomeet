@@ -73,7 +73,7 @@ export default function App() {
     setLoading(true);
     try {
       const response = await axios.post(
-        'https://api-meet.tm-dev.xyz/api/v1/auth/onboard',
+        import.meta.env.VITE_BASE_URL + 'auth/onboard',
         {
           email: email,
           fullName: name,
@@ -117,7 +117,7 @@ export default function App() {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        'https://api-meet.tm-dev.xyz/api/v1/auth/resend-otp',
+        import.meta.env.VITE_BASE_URL + 'auth/resend-otp',
         {
           email: email || userEmail,
         }

@@ -35,7 +35,7 @@ export default function Login({
     setLoading(true);
     try {
       const response = await axios.post(
-        'https://api-meet.tm-dev.xyz/api/v1/auth/login',
+        import.meta.env.VITE_BASE_URL + 'auth/login',
         {
           email: userEmail,
           password: userPassword,
@@ -55,7 +55,7 @@ export default function Login({
       try {
         const token = localStorage.getItem('userToken');
         const response = await axios.get(
-          'https://api-meet.tm-dev.xyz/api/v1/profile/me',
+          import.meta.env.VITE_BASE_URL + 'profile/me',
 
           {
             headers: {
@@ -69,9 +69,10 @@ export default function Login({
           JSON.stringify(response?.data?.data?.user)
         );
         localStorage.setItem('userId', response?.data?.data?.user?.id);
-
+        setLoading(false);
         console.log(response);
       } catch (error) {
+        setLoading(false);
         toast.error(error.message);
       }
     } catch (error) {

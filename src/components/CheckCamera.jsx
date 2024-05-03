@@ -30,7 +30,7 @@ export default function CheckCamera({
   const navigate = useNavigate();
 
   // Get or generate a unique user ID
-  const socket = ioClient('wss://api-meet.tm-dev.xyz');
+  const socket = ioClient('wss://' + import.meta.env.VITE_BASE_URL_SOCKET);
 
   useEffect(() => {
     const url = window.location.href;
@@ -90,7 +90,7 @@ export default function CheckCamera({
   const getDetails = async (meetingCode) => {
     try {
       const response = await axios.get(
-        `https://api-meet.tm-dev.xyz/api/v1/meeting/particular/${meetingCode}`,
+        import.meta.env.VITE_BASE_URL + `meeting/particular/${meetingCode}`,
         {},
         {
           headers: {

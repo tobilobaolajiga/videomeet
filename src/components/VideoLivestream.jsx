@@ -23,7 +23,7 @@ export default function VideoLiveStream({
   const hostAgent = localStorage.getItem('hostAgent');
 
   const [guestRequest, setGuestRequest] = useState(false);
-  const socket = ioClient('wss://api-meet.tm-dev.xyz');
+  const socket = ioClient('wss://' + import.meta.env.VITE_BASE_URL_SOCKET);
   useEffect(() => {
     socket.on('connect', () => {
       console.log('Connected to server');
@@ -62,7 +62,7 @@ export default function VideoLiveStream({
   const admitGuest = async () => {
     try {
       const response = await axios.post(
-        `https://api-meet.tm-dev.xyz/api/v1/meeting/accept/${meetingCode}`,
+        import.meta.env.VITE_BASE_URL + `meeting/accept/${meetingCode}`,
         {
           room: localStorage.getItem('admitRoom'),
           id: localStorage.getItem('admitId'),

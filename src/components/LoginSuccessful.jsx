@@ -38,7 +38,7 @@ export default function LoginSuccessful({
     // meetingLink();
     try {
       const response = await axios.post(
-        'https://api-meet.tm-dev.xyz/api/v1/meeting/createinstant',
+        import.meta.env.VITE_BASE_URL + 'meeting/createinstant',
         {},
         {
           headers: {

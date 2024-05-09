@@ -26,13 +26,13 @@ export default function ImageSlider() {
     height: '300px',
   };
   return (
-    <div className=" w-[600px] ml-[5px] ">
+    <div className=" sm:w-[350px] md:w-[600px] md:ml-[5px] ">
       <Slider {...settings}>
         <div style={slideStyle}>
           <img
             src="/slide1.svg"
             alt=""
-            className="w-[500px] mt-[70px] ml-[30px]"
+            className="w-[500px] mt-[70px] md:ml-[30px]"
           />
         </div>
         <div style={slideStyle}>

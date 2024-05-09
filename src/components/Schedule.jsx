@@ -16,6 +16,8 @@ import ScheduledMeeting from './ScheduledMeetings';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Products from './Products';
+import ResScheduler from './ResScheduler';
+import MobileSchedule from './MobileSchedule';
 
 export default function Schedule({
   schedule,
@@ -25,6 +27,10 @@ export default function Schedule({
   showProfDrop,
   products,
   showProducts,
+  mobileSchedule,
+  setMobileSchedule,
+  showMobileSchedule,
+  resScheduler,
 }) {
   const localizer = momentLocalizer(moment);
   moment.tz.setDefault('Africa/Lagos');
@@ -63,6 +69,7 @@ export default function Schedule({
   const showScheduler = () => {
     setScheduler(!scheduler);
     handleColorSelect();
+    setMobileSchedule(false);
   };
 
   const options = {
@@ -98,11 +105,6 @@ export default function Schedule({
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    // console.log(
-    //   selectedDate.getFullYear(),
-    //   selectedDate.getMonth(),
-    //   selectedDate.getDate()
-    // );
   };
   useEffect(() => {
     // Set the selected date to the current date when the component mounts
@@ -249,7 +251,7 @@ export default function Schedule({
       const eventsMeet = [];
       const allMeetings = meet.map((meeting) => {
         const meetingDate = new Date(meeting.meetingTime);
-        const endTime = new Date(meeting.endTime);
+        // const endTime = new Date(meeting.endTime);
         const newEvent = {
           id: meeting.meetingId,
           title: meeting.meetingName,
@@ -366,7 +368,7 @@ export default function Schedule({
   };
 
   return (
-    <div className="overflow-x-hidden ">
+    <div className="md:overflow-x-hidden h-full w-full ">
       <div className="bg-white ">
         <div>
           <ProfileNav
@@ -374,6 +376,8 @@ export default function Schedule({
             showProfDrop={showProfDrop}
             showProducts={showProducts}
             products={products}
+            mobileModal={mobileSchedule}
+            showMobileModal={showMobileSchedule}
           />
           <Link to="/login">
             <div className="flex gap-4 items-center px-[40px] py-[14px]">
@@ -384,7 +388,7 @@ export default function Schedule({
             </div>
           </Link>
           <div className="flex px-[40px]">
-            <div id=" " className=" w-1/5">
+            <div id=" " className="hidden md:block md:w-1/5">
               <div className="border px-4 shadow-md rounded-md font-inter overflow-y-scroll h-[462px] mt-[36px] overflow-x-hidden scrollbar-webkit">
                 <div className="px-2">
                   <p className="pt-4 text-[12px] font-semibold">
@@ -438,9 +442,9 @@ export default function Schedule({
                 </div>
               </div>
             </div>
-            <div className="scrollbar-webkit rounded-md">
+            <div className="scrollbar-webkit relative rounded-md flex justify-center">
               <Calendar
-                className="w-[1020px] h-screen -mr-[40px] ml-[20px]"
+                className="md:w-[1020px] h-screen lg:-mr-[40px] lg:ml-[20px] "
                 localizer={localizer}
                 defaultView={'week'}
                 selectable
@@ -454,6 +458,7 @@ export default function Schedule({
                   <CustomEventContent event={event} />
                 )}
               />
+              {resScheduler && <ResScheduler showScheduler={showScheduler} />}
             </div>
           </div>
         </div>
@@ -538,6 +543,19 @@ export default function Schedule({
           handleAddEvent={handleAddEvent}
         />
 
+        {mobileSchedule && (
+          <MobileSchedule
+            showMobileSchedule={showMobileSchedule}
+            showScheduler={showScheduler}
+            allScheduledMeetings={allScheduledMeetings}
+            events={events}
+            showMeeting={(eventId) => {
+              showMeeting(eventId);
+            }}
+            currentTime={currentTime}
+            options={options}
+          />
+        )}
         {showScheduledMeet && (
           <ScheduledMeeting
             closeMeeting={closeMeeting}

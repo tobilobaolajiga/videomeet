@@ -12,6 +12,19 @@ import AfterLeaveMeeting from './components/AfterLeaveMeeting';
 import 'animate.css';
 
 export default function App() {
+  const [mobileModal, setMobileModal] = useState(false);
+  const [mobileSchedule, setMobileSchedule] = useState(false);
+  const [resScheduler, setResScheduler] = useState(true);
+  const showMobileModal = () => {
+    setMobileModal(!mobileModal);
+  };
+  const showMobileSchedule = () => {
+    setMobileSchedule(!mobileSchedule);
+    products ? setProducts(false) : '';
+    resScheduler ? setResScheduler(false) : setResScheduler(true);
+
+    console.log('click');
+  };
   const [login, setLogin] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -38,6 +51,7 @@ export default function App() {
   const showLogin = () => {
     setLogin(!login);
     setNewAccount(false);
+    setMobileModal(false);
     // const body = document.querySelector('#body');
     // body.style.position = 'fixed';
   };
@@ -138,6 +152,7 @@ export default function App() {
   const showCreateAccount = () => {
     setNewAccount(!newAccount);
     setLogin(false);
+    setMobileModal(false);
     // !passwordModal();
   };
   const closeCreate = () => {
@@ -260,6 +275,8 @@ export default function App() {
                 setIsLoading={setIsLoading}
                 products={products}
                 showProducts={showProducts}
+                mobileModal={mobileModal}
+                showMobileModal={showMobileModal}
               />
             }
           />
@@ -277,6 +294,11 @@ export default function App() {
                 meetingLink={meetingLink}
                 products={products}
                 showProducts={showProducts}
+                mobileModal={mobileModal}
+                showMobileModal={showMobileModal}
+                sendOTP={sendOTP}
+                resendOTP={resendOTP}
+                loading={loading}
               />
             }
           />
@@ -293,6 +315,10 @@ export default function App() {
                 userId={userId}
                 products={products}
                 showProducts={showProducts}
+                mobileSchedule={mobileSchedule}
+                setMobileSchedule={setMobileSchedule}
+                showMobileSchedule={showMobileSchedule}
+                resScheduler={resScheduler}
               />
             }
           />

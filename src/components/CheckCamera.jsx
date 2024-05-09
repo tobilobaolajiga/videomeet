@@ -142,8 +142,8 @@ export default function CheckCamera({
   return (
     <div className="">
       <div>
-        <div className="flex justify-center items-center  ">
-          <div className="basis-2/3">
+        <div className="lg:flex-row flex flex-col justify-center items-center  ">
+          <div className="md:basis-2/3">
             {' '}
             <VideoPreview
               isVideoOn={isVideoOn}
@@ -157,7 +157,7 @@ export default function CheckCamera({
               setMicImg={setMicImg}
             />
           </div>
-          <div className="basis-1/3 my-[150px] ">
+          <div className="lg:basis-1/3 my-[150px] ">
             <p className="font-inter text-[20px] font-semibold text-center mb-2 w-[320px]">
               Ready to Join?
             </p>

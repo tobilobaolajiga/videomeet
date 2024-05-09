@@ -146,7 +146,7 @@ export default function VideoLiveStream({
     //   return;
     // }
 
-    const domain = 'meet.tm30.net';
+    const domain = 'mediaserver.tm30.net';
 
     const options = {
       roomName: localStorage.getItem('meetingName'),

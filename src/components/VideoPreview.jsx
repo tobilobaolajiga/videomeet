@@ -70,15 +70,15 @@ export default function VideoPreview({
         <div>
           {!isVideoOn ? (
             <div className="relative">
-              <div className="ml-[90px] relative rounded-lg my-[50px]  bg-black  w-[630px] h-[500px]">
+              <div className="lg:ml-[90px] mt-8 relative rounded-lg lg:my-[50px] bg-black w-[300px] h-[300px] lg:w-[630px] lg:h-[500px]">
                 <img
                   src="/avatar.svg"
                   alt=""
-                  className="absolute top-[180px] left-[230px] rounded-full z-50 bg-white py-2 px-2 border-none"
+                  className="absolute left-[75px] top-8 lg:top-[180px] lg:left-[230px] rounded-full z-50 bg-white py-2 px-2 border-none"
                   width={150}
                 />
               </div>
-              <div className="absolute flex bottom-[50px] left-[330px] gap-4 items-center">
+              <div className="absolute flex left-[90px] bottom-[20px] lg:bottom-[50px] lg:left-[330px] gap-4 items-center">
                 <button>
                   <img src={micImg} alt="" width={50} onClick={toggleAudio} />
                 </button>
@@ -93,9 +93,9 @@ export default function VideoPreview({
               <video
                 ref={videoRef}
                 autoPlay
-                className="ml-[90px] my-12 rounded-lg relative  w-fit h-fit"
+                className="lg:ml-[90px] mt-8 rounded-lg relative  w-fit h-fit"
               ></video>
-              <div className="absolute flex bottom-[100px] left-[330px] gap-4 items-center mb-6">
+              <div className=" absolute flex lg:bottom-[100px] top-[320px] left-[180px] lg:left-[330px] gap-4 items-center mb-6">
                 <button>
                   <img src={micImg} alt="" width={50} onClick={toggleAudio} />
                 </button>

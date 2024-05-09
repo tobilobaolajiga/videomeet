@@ -1,5 +1,7 @@
 import NavBar from './NavBar';
 import Hero from './Hero';
+import { useState } from 'react';
+import MobileModal from './MobileModal';
 
 export default function Home({
   showLogin,
@@ -49,9 +51,11 @@ export default function Home({
   products,
   showProducts,
   sendOTP,
+  mobileModal,
+  showMobileModal,
 }) {
   return (
-    <div>
+    <div className="w-fit flex-col items-center justify-center md:flex-row md:w-full ">
       <NavBar
         showLogin={showLogin}
         closeLogin={closeLogin}
@@ -95,6 +99,8 @@ export default function Home({
         setIsLoading={setIsLoading}
         products={products}
         showProducts={showProducts}
+        mobileModal={mobileModal}
+        showMobileModal={showMobileModal}
       />
       <Hero
         showLogin={showLogin}

@@ -3,10 +3,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { ClipLoader } from 'react-spinners';
+import ResetPassword from './ResetPassword';
 export default function ProfileDropdown({
   profileDrop,
   showProfDrop,
   setProfileDrop,
+  pwd,
+  setPwd,
+  sendOTP,
+  resendOTP,
 }) {
   const userData = JSON.parse(localStorage.getItem('userData'));
   const token = localStorage.getItem('userToken');
@@ -59,11 +64,15 @@ export default function ProfileDropdown({
       toast.error(error.response.data.message);
     }
   };
-
+  const [resetPwd, setResetPwd] = useState(false);
+  const showResetPwd = () => {
+    setResetPwd(!resetPwd);
+    profileDrop ? !showProfDrop() : '';
+  };
   return (
     <div>
       {profileDrop && (
-        <div className="bg-white w-2/12 h-2/6 rounded-2xl py-8 px-4 fixed z-50 top-16 right-12 shadow-xl font-DMSans">
+        <div className="bg-white lg:w-2/12 lg:h-2/6 rounded-2xl py-8 px-4 fixed z-50 top-16 right-12 shadow-xl font-DMSans">
           <div className="flex gap-4 items-center justify-between">
             <div>
               <p className="text-[14px] font-bold">{userData?.fullName}</p>
@@ -74,10 +83,13 @@ export default function ProfileDropdown({
             </p>
           </div>
           <div className="border-4 border-[#5F5F67] border-opacity-10 rounded-md mt-[20px]">
-            <div className="flex gap-4 items-center border-b py-[12px] justify-start pl-6">
+            <div
+              className="flex gap-4 items-center border-b py-[12px] justify-start pl-6 cursor-pointer"
+              onClick={showResetPwd}
+            >
               <img src="/settings.svg" alt="" width={15} />{' '}
               <p className="text-[#1A1A1A] text-opacity-70 text-[10px] font-semibold">
-                Settings
+                Change Password
               </p>
             </div>
             <div
@@ -95,6 +107,13 @@ export default function ProfileDropdown({
             </div>
           </div>
         </div>
+      )}
+      {resetPwd && (
+        <ResetPassword
+          sendOTP={sendOTP}
+          resendOTP={resendOTP}
+          showResetPwd={showResetPwd}
+        />
       )}
     </div>
   );

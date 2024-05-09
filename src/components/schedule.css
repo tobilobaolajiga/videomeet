@@ -164,3 +164,50 @@ For react big calendar
 .rbc-calendar .rbc-toolbar {
   font-family: inter;
 }
+
+@media (min-width: 390px) {
+  .rbc-header .rbc-button-link {
+    /* Adjust styles for small screens */
+    font-size: 9px;
+  }
+  .rbc-timeslot-group {
+    min-width: 60px;
+  }
+  .rbc-time-slot .rbc-label {
+    font-size: 9px;
+  }
+  .rbc-time-header .rbc-label .rbc-time-header-gutter {
+    width: 60px;
+  }
+  .rbc-month-view .rbc-month-header .rbc-header {
+    font-size: 14px;
+    font-family: inter;
+  }
+  .rbc-month-view {
+    min-width: 400px;
+  }
+  .rbc-time-view .rbc-time-header-gutter {
+    max-width: 60px;
+  }
+  .rbc-time-view .rbc-time-gutter {
+    max-width: 60px;
+  }
+}
+
+@media (min-width: 976px) {
+  .rbc-header .rbc-button-link {
+    /* Adjust styles for small screens */
+    font-size: 13px;
+  }
+
+  .rbc-time-slot .rbc-label {
+    font-size: 11px;
+  }
+  .rbc-time-view .rbc-time-gutter {
+    min-width: 79px;
+  }
+
+  .rbc-time-view .rbc-time-header-gutter {
+    min-width: 79px;
+  }
+}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import CreateAccount from './CreateAccount';
 import Login from './Login';
 import Products from './Products';
+import MobileModal from './MobileModal';
 export default function NavBar({
   showLogin,
   closeLogin,
@@ -45,12 +46,24 @@ export default function NavBar({
   setIsLoading,
   products,
   showProducts,
+  mobileModal,
+  showMobileModal,
 }) {
   return (
     <div>
-      <div className=" flex justify-between items-center px-[38px] py-[12px] font-DMSans border-b">
-        <div>
-          <img src="/TM30.svg" alt="" className="w-[120px] h-[34px]" />
+      <div className=" flex justify-between items-center px-[38px] py-[12px] font-DMSans border-b w-full">
+        <div className="flex items-center">
+          <img
+            src="/menu.svg"
+            alt=""
+            className="md:hidden cursor-pointer w-[28px] h-[28px]"
+            onClick={showMobileModal}
+          />
+          <img
+            src="/TM30.svg"
+            alt=""
+            className="w-[120px] lg:h-[34px] h-[28px]"
+          />
         </div>
         <div className="flex items-center gap-[31px] pr-[20px]">
           <img
@@ -66,7 +79,7 @@ export default function NavBar({
             Sign In
           </p>
           <button
-            className="bg-[#36AAD9] px-[12px] pt-[11px] pb-[9px] text-[13px] tracking-normal text-white rounded-lg outline-none border-none cursor-pointer"
+            className=" sm:hidden md:block bg-[#36AAD9] px-[12px] pt-[11px] pb-[9px] text-[13px] tracking-normal text-white rounded-lg outline-none border-none cursor-pointer "
             onClick={showCreateAccount}
           >
             Create Account
@@ -138,6 +151,15 @@ export default function NavBar({
         isLoading={isLoading}
         setIsLoading={setIsLoading}
       />
+      {mobileModal && (
+        <MobileModal
+          showMobileModal={showMobileModal}
+          showLogin={showLogin}
+          showCreateAccount={showCreateAccount}
+          products={products}
+          showProducts={showProducts}
+        />
+      )}
     </div>
   );
 }

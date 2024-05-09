@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Products from './Products';
+import MobileModal from './MobileModal';
 
 export default function ProfileNav({
   profileDrop,
@@ -7,6 +8,8 @@ export default function ProfileNav({
   setProfileDrop,
   showProducts,
   products,
+  mobileModal,
+  showMobileModal,
 }) {
   const refreshed = useRef(false);
   const userData = JSON.parse(localStorage.getItem('userData'));
@@ -17,11 +20,24 @@ export default function ProfileNav({
   //   }
   // }, []);
 
+  const showSideScheduler = () => {};
+
   return (
     <div>
-      <div className=" flex justify-between items-center px-[38px] py-[12px] font-DMSans border-b">
-        <div>
-          <img src="/TM30.svg" alt="" className="w-[120px] h-[34px]" />
+      <div className=" flex justify-between items-center px-[38px] py-[12px] font-DMSans border-b ">
+        <div className="flex items-center">
+          <img
+            src="/menu.svg"
+            alt=""
+            className="md:hidden h-[28px] cursor-pointer"
+            onClick={showMobileModal}
+          />
+
+          <img
+            src="/TM30.svg"
+            alt=""
+            className="w-[120px] lg:h-[34px] h-[28px]"
+          />
         </div>
         <div className="flex items-center gap-[25px] pr-[20px]">
           <img
@@ -36,6 +52,13 @@ export default function ProfileNav({
         </div>
       </div>
       <Products products={products} showProducts={showProducts} />
+      {mobileModal && (
+        <MobileModal
+          showMobileModal={showMobileModal}
+          products={products}
+          showProducts={showProducts}
+        />
+      )}
     </div>
   );
 }

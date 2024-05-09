@@ -7,12 +7,19 @@ export default {
     // './node_modules/tailwind-datepicker-react/dist/**/*.js',
   ],
   theme: {
+    screens: {
+      sm: '390px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
     extend: {
       fontFamily: {
         DMSans: ['DM Sans', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
     },
+
     plugins: [
       function ({ addUtilities }) {
         const newUtilities = {

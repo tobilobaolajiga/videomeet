@@ -60,9 +60,9 @@ export default function Hero({
             </button>
           </div>
 
-          <div className=" flex sm:flex-col lg:flex-row sm:gap-[8px] lg:justify-between w-[215px] lg:mt-8 relative lg:w-8/12">
+          <div className=" flex sm:flex-col lg:flex-row sm:gap-[6px] lg:justify-between sm:w-[215px] lg:mt-8 relative lg:w-8/12  ">
             <button
-              className="flex gap-2 items-center justify-center bg-[#36AAD9] rounded-lg text-white font-medium border-none outline-none px-6 py-[9px] sm:text-[13px] md:text-[15px] relative sm:w-[215px]"
+              className="flex gap-2 items-center justify-center bg-[#36AAD9] rounded-lg text-white font-medium border-none outline-none px-[36px] py-[9px] sm:text-[13px] md:text-[14px] relative "
               onClick={showOptions}
             >
               <img src="/video.svg" alt="" className="w-[20px] h-[20px]" />
@@ -93,7 +93,7 @@ export default function Hero({
               meetingLink={meetingLink}
             />
             <button
-              className="text-[#36AAD9] sm:text-[13px] lg:text-[15px] flex gap-2 items-center font-medium bg-white border-[#36AAD9] border rounded-lg outline-none px-4 py-[9px]"
+              className="text-[#36AAD9] sm:text-[13px] lg:text-[14px] flex gap-2 items-center font-medium bg-white border-[#36AAD9] border rounded-lg outline-none px-4 py-[9px] "
               onClick={showLogin}
             >
               <img src="/calendar.svg" alt="" className="w-[20px] h-[18px]" />

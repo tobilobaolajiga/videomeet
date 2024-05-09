@@ -88,7 +88,7 @@ export default function CreatePassword({
     <div>
       {password && (
         <div className="fixed z-50 top-0 left-0 w-full h-screen sm:bg-white  lg:bg-[#000000] lg:bg-opacity-25 cursor-pointer flex justify-center">
-          <div className="bg-white m-auto lg:w-fit lg:h-fit w-2/3 h-fit rounded-2xl font-inter sm:shadow-lg pb-4">
+          <div className="bg-white m-auto md:w-fit md:h-fit w-2/3 h-fit rounded-2xl font-inter sm:shadow-lg pb-4">
             <div
               className="flex flex-col items-center py-[20px] border-b"
               onClick={passwordModal}

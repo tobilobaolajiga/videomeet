@@ -88,7 +88,7 @@ export default function ProfileDropdown({
               onClick={showResetPwd}
             >
               <img src="/settings.svg" alt="" width={15} />{' '}
-              <p className="text-[#1A1A1A] text-opacity-70 text-[10px] font-semibold">
+              <p className="text-[#1A1A1A] text-opacity-70 text-[10px] font-semibold pr-6">
                 Change Password
               </p>
             </div>

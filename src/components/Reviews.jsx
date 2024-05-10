@@ -1,7 +1,7 @@
 import Marquee from 'react-fast-marquee';
 export default function Reviews() {
   return (
-    <div className="mt-4 mx-12 mb-4">
+    <div className=" mx-12 mb-4">
       <Marquee>
         <div className="flex gap-[50px]">
           <div className="transform rotate-6 mx-4">

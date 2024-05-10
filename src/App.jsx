@@ -296,8 +296,8 @@ export default function App() {
                 meetingLink={meetingLink}
                 products={products}
                 showProducts={showProducts}
-                mobileModal={mobileModal}
-                showMobileModal={showMobileModal}
+                mobileSchedule={mobileSchedule}
+                showMobileSchedule={showMobileSchedule}
                 sendOTP={sendOTP}
                 resendOTP={resendOTP}
                 loading={loading}

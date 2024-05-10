@@ -78,8 +78,8 @@ export default function LoginSuccessful({
             setProfileDrop={setProfileDrop}
             showProducts={showProducts}
             products={products}
-            mobileModal={mobileModal}
-            showMobileModal={showMobileModal}
+            // mobileModal={mobileModal}
+            // showMobileModal={showMobileModal}
           />
         </div>
         <div className="flex flex-col lg:flex-row bg-white items-center justify-between">

@@ -102,30 +102,43 @@ export default function ScheduledMeeting({
               {repeatBtn}
             </button>
           </div>
-          {/* <div className="mx-6 mt-2 ">
+          <div className="mx-6 mt-2 ">
             <p className="flex gap-2 text-[10px] font-medium">
               <img src="/people.svg" alt="" width={15} />
               Guests
             </p>
-            <div className="flex gap-2 items-center mt-2">
-              <img src="/A.svg" alt="" />
-              <p className="text-[9px] font-semibold font-DMSans">
-                Adekunle Samson <br />
-                <span className="text-[8px] font-normal text-[#667085]">
-                  Adekunlesam007@gmail.com
-                </span>
-              </p>
-            </div>
-            <div className="flex gap-2 items-center mt-2">
-              <img src="/T.svg" alt="" />
-              <p className="text-[9px] font-semibold font-DMSans">
-                Tomiwa Williams <br />
-                <span className="text-[8px] font-normal text-[#667085]">
-                  Tomwilly1@gmail.com
-                </span>
-              </p>
-            </div>
-          </div> */}
+
+            <ul className="text-[9px] mt-[4px] list-disc mx-4">
+              {meetingDetails.emails.map((guest, index) =>
+                index == 0 ? (
+                  ''
+                ) : (
+                  <li key={index} className="font-medium font-DMSans">
+                    {guest}
+                  </li>
+                )
+              )}
+            </ul>
+
+            {/* <div className="flex gap-2 items-center mt-2">
+                <img src="/A.svg" alt="" />
+                <p className="text-[9px]  ">
+                  Adekunle Samson <br />
+                  <span className="text-[8px] font-normal text-[#667085]">
+                    Adekunlesam007@gmail.com
+                  </span>
+                </p>
+              </div>
+              <div className="flex gap-2 items-center mt-2">
+                <img src="/T.svg" alt="" />
+                <p className="text-[9px] font-semibold font-DMSans">
+                  Tomiwa Williams <br />
+                  <span className="text-[8px] font-normal text-[#667085]">
+                    Tomwilly1@gmail.com
+                  </span>
+                </p>
+              </div> */}
+          </div>
           <div className="mx-6 mt-2 text-[#344054]">
             <p className="flex gap-2 text-[10px] font-medium mt-4 font-inter">
               <img src="/description.svg" alt="" width={15} />
@@ -145,7 +158,7 @@ export default function ScheduledMeeting({
               <span>
                 <img src="/dot.svg" alt="" width={4} />
               </span>
-              6:30 AM
+              {/* 6:30 AM */}
             </p>
           </div>
         </div>

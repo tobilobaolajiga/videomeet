@@ -71,7 +71,9 @@ export default function Scheduler({
 }) {
   const [realDate, setRealDate] = useState(new Date());
   const [error, setError] = useState('');
-
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  const [guest, setGuest] = useState('');
+  const [guests, setGuests] = useState([userData.email]);
   useEffect(() => {
     const interval = setInterval(() => {
       setRealDate(new Date());
@@ -103,6 +105,7 @@ export default function Scheduler({
 
   const closeScheduler = () => {
     setScheduler(!scheduler);
+    setGuests([userData.email]);
   };
   const closeDescription = () => {
     setDescription(!description);
@@ -110,9 +113,7 @@ export default function Scheduler({
   const closeReminder = () => {
     setReminder(!reminder);
   };
-  const userData = JSON.parse(localStorage.getItem('userData'));
-  const [guest, setGuest] = useState('');
-  const [guests, setGuests] = useState([userData.email]);
+
   const addGuests = (guest) => {
     setGuests([...guests, guest]); // Prevent the default action of submitting a form
     setGuest('');
@@ -126,7 +127,6 @@ export default function Scheduler({
   // const allGuests = JSON.stringify(guests);
 
   const scheduleMeeting = async () => {
-    console.log('click');
     console.log(guests);
     setLoading(true);
     const startTime = `${selectedDate.getFullYear()}-${(
@@ -169,6 +169,11 @@ export default function Scheduler({
         'meetingId',
         `${window.location.origin}/check/${response?.data?.data?.meetingId}`
       );
+      localStorage.setItem(
+        'guests',
+        JSON.stringify(response?.data?.data?.emails)
+      );
+      console.log(response?.data?.data?.emails);
       setSelectedColor(selectedColor);
       handleAddEvent();
       showScheduled();
@@ -513,8 +518,7 @@ export default function Scheduler({
         setScheduled={setScheduled}
         addTitles={addTitles}
         handleAddEvent={handleAddEvent}
-        guests={guests}
-        setGuests={setGuests}
+        // setGuests={setGuests}
       />
     </div>
   );

@@ -27,10 +27,11 @@ export default function Scheduled({
   handleAddEvent,
   addTitles,
   setScheduled,
-  guests,
-  setGuests,
+
+  // setGuests,
 }) {
   const meetingID = localStorage.getItem('meetingId');
+  const guests = JSON.parse(localStorage.getItem('guests'));
   const options = {
     weekday: 'long',
     day: 'numeric',
@@ -48,7 +49,7 @@ export default function Scheduled({
     setEndHour('12');
     setEndMinutes('00');
     setEndPeriod('PM');
-    setGuests([]);
+    // setGuests([]);
   };
   return (
     <div>
@@ -126,29 +127,19 @@ export default function Scheduled({
                 <img src="/people.svg" alt="" width={15} />
                 Guests
               </p>
-              {
-                guests && (
-                  <ul className="text-[9px] mt-[4px] list-disc mx-4">
-                    {guests.map((guest, index) =>
-                      index == 0 ? (
-                        ''
-                      ) : (
-                        <li key={index} className="font-semibold font-DMSans">
-                          {guest}
-                        </li>
-                      )
-                    )}
-                  </ul>
-                )
-                // : (
-                //   <img
-                //     src="/noguest.svg"
-                //     alt=""
-                //     width={60}
-                //     className="mx-16 mt-4"
-                //   />
-                // )
-              }
+
+              <ul className="text-[9px] mt-[4px] list-disc mx-4">
+                {guests.map((guest, index) =>
+                  index == 0 ? (
+                    ''
+                  ) : (
+                    <li key={index} className="font-medium font-DMSans">
+                      {guest}
+                    </li>
+                  )
+                )}
+              </ul>
+
               {/* <div className="flex gap-2 items-center mt-2">
                 <img src="/A.svg" alt="" />
                 <p className="text-[9px]  ">

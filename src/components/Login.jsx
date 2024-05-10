@@ -99,20 +99,20 @@ export default function Login({
       <div>
         {login && (
           <div className=" fixed z-50 top-0 left-0 w-full h-screen sm:bg-white  lg:bg-[#000000] lg:bg-opacity-25 cursor-pointer flex justify-center ">
-            <div className="bg-white m-auto md:w-fit md:h-fit w-2/3 h-2/3 rounded-2xl font-inter sm:shadow-lg">
+            <div className="bg-white m-auto md:w-fit lg:w-fit md:h-fit lg:h-2/3 w-2/3 h-2/3 rounded-2xl font-inter sm:shadow-lg">
               <div className="flex flex-col items-center pt-[24px] border-b pb-[20px]">
                 <div className="relative w-full flex justify-center items-center">
-                  <img src="/TM30.svg" alt="" width={60} />{' '}
+                  <img src="/TM30.svg" alt="" width={80} />{' '}
                   <img
                     src="/cross.svg"
                     alt=""
-                    width={10}
+                    width={14}
                     className="absolute top-[4px] right-[25px]"
                     onClick={closeLogin}
                   />
                 </div>
 
-                <p className="text-[16px] font-bold pt-[12px] text-[#101828]">
+                <p className="text-[18px] font-bold pt-[12px] text-[#101828]">
                   Login to your account{' '}
                 </p>
                 <p className="text-[#667085] text-[10px] tracking-tight">
@@ -123,7 +123,7 @@ export default function Login({
                 <form action="" className="relative">
                   <label
                     htmlFor=""
-                    className="text-[10px] font-medium text-[#344054]"
+                    className="text-[11px] font-medium text-[#344054]"
                   >
                     Email address
                     <span
@@ -139,17 +139,17 @@ export default function Login({
                     value={userEmail}
                     onChange={(e) => setUserEmail(e.target.value)}
                     placeholder="Enter your email address"
-                    className="border w-full rounded-md px-6 py-[8px] text-[11px] mb-[6px] mt-[4px] placeholder:text-[9px]  placeholder:text-[#667085] outline-none"
+                    className="border w-full rounded-md pl-8 pr-4 py-[12px] text-[11px] mb-[6px] mt-[4px] placeholder:text-[9px]  placeholder:text-[#667085] outline-none"
                   />
                   <img
                     src="/mail.svg"
                     alt=""
                     width={12}
-                    className="absolute top-[39px] left-[9px]"
+                    className="absolute top-[43px] left-[12px]"
                   />
                   <label
                     htmlFor=""
-                    className="text-[10px] font-medium text-[#344054]"
+                    className="text-[11px] font-medium text-[#344054]"
                   >
                     Password
                     <span
@@ -165,18 +165,18 @@ export default function Login({
                     value={userPassword}
                     onChange={(e) => setUserPassword(e.target.value)}
                     placeholder="Enter your password"
-                    className="border w-full rounded-md px-6 py-[8px] text-[11px] mb-[6px] mt-[4px] placeholder:text-[9px]  placeholder:text-[#667085] outline-none"
+                    className="border w-full rounded-md pl-8  pr-4 py-[12px] text-[11px] mb-[6px] mt-[4px] placeholder:text-[9px]  placeholder:text-[#667085] outline-none"
                   />
                   <img
                     src="/password.svg"
                     alt=""
                     width={12}
-                    className="absolute bottom-[18px] left-[9px]"
+                    className="absolute bottom-[21px] left-[12px]"
                   />
                 </form>
                 <button
                   onClick={SignIn}
-                  className="bg-[#36AAD9] text-white w-full py-[8px] rounded-md mt-2 text-[10px]"
+                  className="bg-[#36AAD9] text-white w-full py-[12px] rounded-md mt-6 text-[11px]"
                 >
                   {loading ? (
                     <ClipLoader color="#36D7B7" loading={loading} size={16} />

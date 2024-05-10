@@ -13,6 +13,8 @@ import 'animate.css';
 import Dashboard from './Pages/Dashboard';
 import AccountCreated from './components/AccountCreated';
 
+import Reviews from './components/Reviews';
+
 export default function App() {
   const [mobileModal, setMobileModal] = useState(false);
   const [mobileSchedule, setMobileSchedule] = useState(false);
@@ -343,7 +345,6 @@ export default function App() {
           <Route path="/video/:meetingId" element={<VideoLiveStream />} />
           <Route path="/leave" element={<AfterLeaveMeeting />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          {/* <Route path="/created" element={<AccountCreated />} /> */}
         </Routes>
       </div>
     </BrowserRouter>

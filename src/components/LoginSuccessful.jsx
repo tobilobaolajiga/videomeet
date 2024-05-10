@@ -11,6 +11,7 @@ import Products from './Products';
 import { ClipLoader } from 'react-spinners';
 import toast from 'react-hot-toast';
 import { v4 as uuidv4 } from 'uuid';
+import Reviews from './Reviews';
 export default function LoginSuccessful({
   schedule,
   showSchedule,
@@ -59,7 +60,10 @@ export default function LoginSuccessful({
       localStorage.setItem('meeting', data?.data?.data);
       localStorage.setItem('videoId', data?.data?.referenceId);
       window.location.href = data?.data?.data;
-
+      // const url = data?.data?.data;
+      // const meetingCode = url.substring(28, 65);
+      // localStorage.setItem('meetingCode', meetingCode);
+      // navigate(`/video/${meetingCode}`);
       console.log(data);
     } catch (error) {
       setLoading(false);
@@ -191,6 +195,7 @@ export default function LoginSuccessful({
             <ImageSlider />
           </div>
         </div>
+        <Reviews />
 
         {/* <Schedule schedule={schedule} showSchedule={showSchedule} /> */}
         <ProfileDropdown

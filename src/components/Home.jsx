@@ -2,6 +2,7 @@ import NavBar from './NavBar';
 import Hero from './Hero';
 import { useState } from 'react';
 import MobileModal from './MobileModal';
+import Reviews from './Reviews';
 
 export default function Home({
   showLogin,
@@ -125,6 +126,7 @@ export default function Home({
         verifyOTP={verifyOTP}
         meetingLink={meetingLink}
       />
+      <Reviews />
     </div>
   );
 }

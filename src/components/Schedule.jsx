@@ -388,7 +388,7 @@ export default function Schedule({
             </div>
           </Link>
           <div className="flex px-[40px] gap-2">
-            <div id=" " className="hidden md:block md:w-1/5">
+            <div id=" " className="hidden lg:block md:w-1/5">
               <div className="border px-4 shadow-md rounded-md font-inter overflow-y-scroll h-[462px] mt-[36px] overflow-x-hidden scrollbar-webkit">
                 <div className="px-2">
                   <p className="pt-4 text-[12px] font-semibold">
@@ -403,7 +403,7 @@ export default function Schedule({
                 </div>
 
                 <button
-                  className="flex lg:gap-4 bg-[#36AAD9] items-center py-[12px] lg:px-10 px-2  rounded-md text-white sm:text-[10px] md:text-[12px] mt-4"
+                  className="flex lg:gap-4 bg-[#36AAD9] items-center justify-center py-[12px] w-max px-8 rounded-md text-white sm:text-[10px] lg:text-[12px] mt-4"
                   onClick={showScheduler}
                 >
                   <img src="/add.svg" alt="" width={14} />

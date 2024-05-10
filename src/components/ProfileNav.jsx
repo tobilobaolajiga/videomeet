@@ -29,7 +29,7 @@ export default function ProfileNav({
           <img
             src="/menu.svg"
             alt=""
-            className="md:hidden h-[28px] cursor-pointer"
+            className="lg:hidden h-[28px] cursor-pointer"
             onClick={showMobileModal}
           />
 

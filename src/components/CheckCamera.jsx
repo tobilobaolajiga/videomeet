@@ -140,7 +140,7 @@ export default function CheckCamera({
   //
 
   return (
-    <div className="">
+    <div className="h-screen w-screen">
       <div>
         <div className="lg:flex-row flex flex-col justify-center items-center  ">
           <div className="md:basis-2/3">

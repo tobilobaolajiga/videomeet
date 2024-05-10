@@ -54,7 +54,7 @@ export default function Scheduled({
     <div>
       {scheduled && (
         <div className="fixed z-50 top-0 left-0 w-full h-screen sm:bg-white  lg:bg-[#000000] lg:bg-opacity-25 cursor-pointer sm:flex sm:justify-center sm:items-center ">
-          <div className="w-fit rounded-xl h-fit shadow-lg  bg-white relative">
+          <div className="w-fit rounded-xl h-fit shadow-lg bg-white relative pb-6">
             <div className="border-b">
               <img
                 onClick={closeScheduled}
@@ -95,8 +95,8 @@ export default function Scheduled({
                 type="text"
                 className="w-full border border-[#D0D5DD] bg-[#F4F4F4] py-[2px] px-[3px] my-[4px] rounded-lg shadow-sm"
               />
-              <div className="absolute text-[9px] text-[#667085] left-2 bottom-[12px] font-inter tracking-tight text-nowrap ">
-                <p className="w-[190px] overflow-x-clip">
+              <div className="absolute text-[9px] text-[#667085] left-2 bottom-[12px] font-inter tracking-tight text-nowrap max-w-fit">
+                <p className="sm:w-[150px] w-[190px] overflow-x-clip">
                   {meetingID}
                   <img
                     width={14}

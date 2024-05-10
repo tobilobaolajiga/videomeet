@@ -3,6 +3,7 @@ import axios from 'axios';
 import AccountCreated from './AccountCreated';
 import { ClipLoader } from 'react-spinners';
 import toast from 'react-hot-toast';
+
 export default function OTP({
   otp,
   resendOTP,
@@ -100,6 +101,8 @@ export default function OTP({
       );
       setLoading(false);
       const data = response;
+      localStorage.setItem('ref', data?.data?.referenceId);
+
       setAccountSuccess(!accountSuccess);
       setOTP(false);
 
@@ -128,7 +131,7 @@ export default function OTP({
                     Request Code{' '}
                   </p>
                   <p className="text-[#667085] text-[10px] tracking-tight">
-                    {!error ? `We sent a code to ${Email || userEmail}` : error}
+                    {!error ? 'We sent a code to you' : error}
                   </p>
                 </div>
                 <div className="px-8 pb-8 pt-4">

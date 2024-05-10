@@ -11,6 +11,7 @@ import AfterLeaveMeeting from './components/AfterLeaveMeeting';
 
 import 'animate.css';
 import Dashboard from './Pages/Dashboard';
+import AccountCreated from './components/AccountCreated';
 
 export default function App() {
   const [mobileModal, setMobileModal] = useState(false);
@@ -234,7 +235,7 @@ export default function App() {
       <div>
         <Routes>
           <Route
-            className="max-w-[1400px] w-screen h-screen font-DMSans overflow-y-hidden flex items-center justify-center" //
+            className="max-w-[1400px] w-screen h-screen mx-auto font-DMSans overflow-y-hidden flex items-center justify-center" //
             id="body"
             path="/"
             element={
@@ -284,7 +285,7 @@ export default function App() {
           <Route
             className="max-w-[1400px] w-screen h-screen mx-auto font-DMSans overflow-y-hidden flex items-center justify-center" //
             id="body"
-            path="/login"
+            path="/login/:refId"
             element={
               <LoginSuccessful
                 schedule={schedule}
@@ -305,7 +306,7 @@ export default function App() {
           />
           <Route
             className="h-screen w-screen"
-            path="/schedule"
+            path={`/schedule/:${localStorage.getItem('ref')}`}
             element={
               <Schedule
                 schedule={schedule}
@@ -342,6 +343,7 @@ export default function App() {
           <Route path="/video/:meetingId" element={<VideoLiveStream />} />
           <Route path="/leave" element={<AfterLeaveMeeting />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/created" element={<AccountCreated />} /> */}
         </Routes>
       </div>
     </BrowserRouter>

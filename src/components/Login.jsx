@@ -44,10 +44,12 @@ export default function Login({
       const data = response;
       console.log(data?.data?.data?.token?.refreshToken);
       localStorage.setItem('userToken', data?.data?.data?.token?.refreshToken);
-
+      localStorage.setItem('ref', data?.data?.referenceId);
       setLogin(false);
       setLoading(false);
-      navigate('/login');
+      const ref = localStorage.getItem('ref');
+      console.log(ref);
+      navigate(`/login/${ref}`);
       console.log(data);
       console.log(localStorage.getItem('userData'));
       console.log(localStorage.getItem('userToken'));

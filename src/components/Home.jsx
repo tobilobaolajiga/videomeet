@@ -55,7 +55,7 @@ export default function Home({
   showMobileModal,
 }) {
   return (
-    <div className="w-fit flex-col items-center justify-center md:flex-row md:w-full ">
+    <div className="w-screen h-screen flex-col items-center justify-center md:flex-row md:w-full">
       <NavBar
         showLogin={showLogin}
         closeLogin={closeLogin}

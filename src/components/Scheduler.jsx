@@ -126,13 +126,15 @@ export default function Scheduler({
   // const allGuests = JSON.stringify(guests);
 
   const scheduleMeeting = async () => {
+    console.log('click');
     console.log(guests);
     setLoading(true);
     const startTime = `${selectedDate.getFullYear()}-${(
       selectedDate.getMonth() + 1
     )
       .toString()
-      .padStart(2, '0')}-${(selectedDate.getDate() + 1)
+      .padStart(2, '0')}-${selectedDate
+      .getDate()
       .toString()
       .padStart(2, '0')}T${startHour}:${startMinutes}:00Z`;
 
@@ -140,7 +142,8 @@ export default function Scheduler({
       selectedDate.getMonth() + 1
     )
       .toString()
-      .padStart(2, '0')}-${(selectedDate.getDate() + 1)
+      .padStart(2, '0')}-${selectedDate
+      .getDate()
       .toString()
       .padStart(2, '0')}T${endHour}:${endMinutes}:00Z`;
     try {
@@ -177,6 +180,7 @@ export default function Scheduler({
       console.log(error.response.data.message);
     }
   };
+
   const [loading, setLoading] = useState(false);
   const [reminderDate, setReminderDate] = useState(new Date());
   const [reminderDateTwo, setReminderDateTwo] = useState(new Date());
@@ -420,18 +424,17 @@ export default function Scheduler({
                 )}
               </div>
             </div>
-            <div className="flex justify-end">
-              <button
-                onClick={scheduleMeeting}
-                className="border bg-[#36AAD9] px-[12px] py-[4px] rounded text-white text-[9px] -mt-4 mb-4 mr-4"
-              >
-                {loading ? (
-                  <ClipLoader color="#36D7B7" loading={loading} size={16} />
-                ) : (
-                  'Save'
-                )}
-              </button>
-            </div>
+
+            <button
+              className="border bg-[#36AAD9] px-[12px] py-[4px] rounded text-white text-[9px] mb-4 cursor-pointer absolute bottom-0 right-6"
+              onClick={scheduleMeeting}
+            >
+              {loading ? (
+                <ClipLoader color="#36D7B7" loading={loading} size={16} />
+              ) : (
+                'Save'
+              )}
+            </button>
           </div>
         </div>
       )}

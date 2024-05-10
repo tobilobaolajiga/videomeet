@@ -368,7 +368,7 @@ export default function Schedule({
   };
 
   return (
-    <div className="md:overflow-x-hidden h-full w-full ">
+    <div className=" h-screen w-screen ">
       <div className="bg-white ">
         <div>
           <ProfileNav
@@ -379,7 +379,7 @@ export default function Schedule({
             mobileModal={mobileSchedule}
             showMobileModal={showMobileSchedule}
           />
-          <Link to="/login">
+          <Link to={`/login/${localStorage.getItem('ref')}`}>
             <div className="flex gap-4 items-center px-[40px] py-[14px]">
               <img src="/arrowLeft.svg" alt="" width={14} />
               <p className="font-semibold text-[#1A1A1A] opacity-90 text-[14px]">
@@ -387,7 +387,7 @@ export default function Schedule({
               </p>
             </div>
           </Link>
-          <div className="flex px-[40px]">
+          <div className="flex px-[40px] gap-2">
             <div id=" " className="hidden md:block md:w-1/5">
               <div className="border px-4 shadow-md rounded-md font-inter overflow-y-scroll h-[462px] mt-[36px] overflow-x-hidden scrollbar-webkit">
                 <div className="px-2">
@@ -403,7 +403,7 @@ export default function Schedule({
                 </div>
 
                 <button
-                  className="flex gap-4 bg-[#36AAD9] items-center py-[12px] px-10 rounded-md text-white text-[12px] mt-4"
+                  className="flex lg:gap-4 bg-[#36AAD9] items-center py-[12px] lg:px-10 px-2  rounded-md text-white sm:text-[10px] md:text-[12px] mt-4"
                   onClick={showScheduler}
                 >
                   <img src="/add.svg" alt="" width={14} />

@@ -10,6 +10,7 @@ export default function MobileSchedule({
   currentTime,
   options,
 }) {
+  const ref = localStorage.getItem('ref');
   return (
     <div>
       <div className="lg:hidden fixed z-50 top-0 left-0 w-2/3 h-full bg-white cursor-pointer flex justify-start ">
@@ -23,7 +24,7 @@ export default function MobileSchedule({
             />
             <img src="/TM30.svg" alt="" className="w-[100px] h-[28px]" />
           </div>
-          <Link to="/login">
+          <Link to={`/login/${ref}`}>
             <div className="flex gap-4 items-center py-[14px]">
               <img src="/arrowLeft.svg" alt="" width={10} />
               <p className="font-semibold text-[#1A1A1A] opacity-90 text-[12px]">

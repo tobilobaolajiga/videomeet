@@ -10,10 +10,11 @@ import CheckCamera from './components/CheckCamera';
 import AfterLeaveMeeting from './components/AfterLeaveMeeting';
 
 import 'animate.css';
-import Dashboard from './Pages/Dashboard';
+import Dashboard from './Pages/MainDashboard/Dashboard';
 import AccountCreated from './components/AccountCreated';
 
 import Reviews from './components/Reviews';
+import Participants from './Pages/Participants/Participants';
 
 export default function App() {
   const [mobileModal, setMobileModal] = useState(false);
@@ -344,7 +345,7 @@ export default function App() {
 
           <Route path="/video/:meetingId" element={<VideoLiveStream />} />
           <Route path="/leave" element={<AfterLeaveMeeting />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/participants" element={<Participants />} />
         </Routes>
       </div>
     </BrowserRouter>

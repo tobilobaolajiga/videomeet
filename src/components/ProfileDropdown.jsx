@@ -72,7 +72,7 @@ export default function ProfileDropdown({
   return (
     <div>
       {profileDrop && (
-        <div className="bg-white lg:w-2/12 lg:h-2/6 rounded-2xl py-8 px-4 fixed z-50 top-16 right-12 shadow-xl font-DMSans">
+        <div className="bg-white lg:w-2/12 lg:h-fit rounded-2xl py-8 px-4 fixed z-50 top-16 right-12 shadow-xl font-DMSans">
           <div className="flex gap-4 items-center justify-between">
             <div>
               <p className="text-[14px] font-bold">{userData?.fullName}</p>

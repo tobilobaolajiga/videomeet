@@ -115,7 +115,7 @@ export default function LoginSuccessful({
                   Join Meeting
                 </button>
               </div>
-              <div className="flex sm:flex-col lg:flex-row sm:gap-[8px] lg:justify-between lg:mt-8 relative lg:w-8/12  ">
+              <div className="flex sm:flex-col lg:flex-row sm:gap-[8px] lg:mt-8 relative lg:w-8/12  ">
                 <button
                   className="flex gap-2 items-center justify-center bg-[#36AAD9] rounded-lg text-white font-medium border-none outline-none px-6 py-[9px] sm:text-[13px] md:text-[14px] relative sm:w-[215px]"
                   onClick={showOptions}

@@ -15,6 +15,8 @@ import AccountCreated from './components/AccountCreated';
 
 import Reviews from './components/Reviews';
 import Participants from './Pages/Participants/Participants';
+import AdminLogin from './components/AdminLogin';
+import ForgotAdminPass from './components/ForgotPassAdmin';
 
 export default function App() {
   const [mobileModal, setMobileModal] = useState(false);
@@ -344,8 +346,17 @@ export default function App() {
           />
 
           <Route path="/video/:meetingId" element={<VideoLiveStream />} />
-          <Route path="/leave" element={<AfterLeaveMeeting />} />
-          <Route path="/participants" element={<Participants />} />
+          <Route
+            path="/leave"
+            element={
+              <AfterLeaveMeeting
+                showProducts={showProducts}
+                products={products}
+              />
+            }
+          />
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin/forgot" element={<ForgotAdminPass />} />
         </Routes>
       </div>
     </BrowserRouter>

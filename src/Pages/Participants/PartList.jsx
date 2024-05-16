@@ -195,12 +195,12 @@ export default function PartList() {
           </div>
         </div>
       </div>
-      <div className="flex">
+      <div className="flex gap-2">
         <div>
           <p>Page 1 of 30</p>
         </div>
         <div>
-          <ul>
+          <ul className="flex gap-2">
             <li>1</li>
             <li>2</li>
             <li>3</li>

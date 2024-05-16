@@ -20,8 +20,6 @@ export default function ProfileNav({
   //   }
   // }, []);
 
-  const showSideScheduler = () => {};
-
   return (
     <div>
       <div className=" flex justify-between items-center px-[38px] py-[12px] font-DMSans border-b ">

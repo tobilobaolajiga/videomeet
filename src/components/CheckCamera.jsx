@@ -157,7 +157,7 @@ export default function CheckCamera({
               setMicImg={setMicImg}
             />
           </div>
-          <div className="lg:basis-1/3 my-[150px] ">
+          <div className="lg:basis-1/3 my-[20px] lg:my-[150px] ">
             <p className="font-inter text-[20px] font-semibold text-center mb-2 w-[320px]">
               Ready to Join?
             </p>

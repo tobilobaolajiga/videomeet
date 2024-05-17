@@ -1,8 +1,8 @@
-export default function ParticipantsNav() {
+export default function MeetingsNav() {
   return (
     <div className="flex  h-fit justify-between items-center w-full pt-8 pb-[26px] border-b  px-10">
       <div className="font-inter text-[12px] text-[#999999]">
-        Pages /<span className="text-[#212121] font-medium"> Participants</span>
+        Pages /<span className="text-[#212121] font-medium"> Meetings</span>
       </div>
       <div className="flex justify-center items-center ">
         <div className="flex border-r pr-2 mr-4">

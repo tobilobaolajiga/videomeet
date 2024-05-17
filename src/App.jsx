@@ -17,6 +17,7 @@ import Reviews from './components/Reviews';
 import Participants from './Pages/Participants/Participants';
 import AdminLogin from './components/AdminLogin';
 import ForgotAdminPass from './components/ForgotPassAdmin';
+import Meetings from './Pages/Meetings/Meetings';
 
 export default function App() {
   const [mobileModal, setMobileModal] = useState(false);
@@ -357,6 +358,7 @@ export default function App() {
           />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/forgot" element={<ForgotAdminPass />} />
+          <Route path="/meetings" element={<Meetings />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -19,29 +19,6 @@ export default function ProfileDropdown({
   const navigate = useNavigate();
   const [error, setError] = useState('');
 
-  // useEffect(() => {
-  //   getProfile();
-  // });
-  // const getProfile = async () => {
-  //   try {
-  //     const response = await axios.post(
-  //       'http://89.38.135.41:9877/api/v1/profile/me',
-  //       {},
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     );
-  //     const data = response;
-  //     console.log(data);
-  //     // navigate('/');
-  //     // setProfileDrop(false);
-  //   } catch (error) {
-  //     toast.error(error.message);
-  //   }
-  // };
-
   const Logout = async () => {
     setLoading(true);
     try {

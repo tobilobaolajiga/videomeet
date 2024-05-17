@@ -6,9 +6,15 @@ import ParticipantsNav from './ParticipantsNav';
 export default function Participants() {
   return (
     <div className="flex">
-      <ParticipantsMenu />
-      <div className="w-full">
-        <ParticipantsNav />
+      <div className="w-1/5">
+        <ParticipantsMenu />
+      </div>
+
+      <div className="w-full ml-12">
+        <div>
+          <ParticipantsNav />
+        </div>
+
         <PartHeader />
         <PartList />
       </div>

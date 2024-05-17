@@ -195,18 +195,33 @@ export default function PartList() {
           </div>
         </div>
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 justify-between text-[11px] mt-4 font-inter">
         <div>
-          <p>Page 1 of 30</p>
+          <p className="text-[#667185] font-medium">Page 1 of 30</p>
         </div>
         <div>
-          <ul className="flex gap-2">
+          <ul className="flex gap-2 text-[#98a2b3]">
             <li>1</li>
             <li>2</li>
             <li>3</li>
+            <li>...</li>
+            <li>10</li>
+            <li>11</li>
           </ul>
         </div>
-        <div></div>
+        <div className="flex gap-2 items-center justify-center">
+          <p className="text-[#667185] font-medium">Go to page</p>
+          <p className="border flex rounded px-2 py-[4px] gap-2 items-center justify-center text-[#98a2b3]">
+            00 <img src="/chev.svg" alt="" width={8} />
+          </p>
+          <p className="border flex gap-2 items-center justify-center rounded px-2 py-[4px] text-[#667185] font-semibold">
+            <img src="/arrowL.svg" alt="" width={12} />
+            Previous
+          </p>
+          <p className="border flex rounded px-2 py-[4px] text-[#667185] gap-2 items-center justify-center font-semibold">
+            Next <img src="/arrowR.svg" alt="" width={12} />
+          </p>
+        </div>
       </div>
     </div>
   );

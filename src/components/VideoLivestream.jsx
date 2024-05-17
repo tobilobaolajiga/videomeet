@@ -24,10 +24,15 @@ export default function VideoLiveStream({
 
   const [guestRequest, setGuestRequest] = useState(false);
   const socket = ioClient('wss://' + import.meta.env.VITE_BASE_URL_SOCKET);
+  const roomId = localStorage.getItem('admitRoom');
   useEffect(() => {
     socket.on('connect', () => {
       console.log('Connected to server');
-      socket.emit('joinRoom', userId);
+      console.log('userId', userId);
+      console.log('roomId', roomId);
+      if (userId == roomId) {
+        socket.emit('joinRoom', userId);
+      }
     });
 
     // Listen for 'disconnect' event
@@ -255,7 +260,7 @@ export default function VideoLiveStream({
             className="w-full h-full relative"
             style={{ height: '100vh !important' }}
           >
-            {!jitsiLoading && (
+            {/* {!jitsiLoading && (
               <div
                 className={`flex bg-[#141414] w-[100px] absolute py-4 rounded left-[20px] justify-center gap-2 bottom-[30px]  
         }`}
@@ -269,13 +274,13 @@ export default function VideoLiveStream({
                 />
                 <img src="/record.svg" alt="" width={25} />
               </div>
-            )}
-            <HostControl
+            )} */}
+            {/* <HostControl
               hostControl={hostControl}
               showHostControl={showHostControl}
               options={options}
               showOptions={showOptions}
-            />
+            /> */}
             <AdmitModal
               guestRequest={guestRequest}
               // admitGuest={admitGuest}

@@ -1,4 +1,4 @@
-export default function ParticipantsMenu() {
+export default function MeetingsMenu() {
   return (
     <div className="bg-[#f6f6f6] fixed left-0 h-screen  w-1/5 flex flex-col justify-between my-4 ml-4 rounded-lg font-inter">
       <div>
@@ -11,12 +11,12 @@ export default function ParticipantsMenu() {
             <img src="/greyDash.svg" alt="" width={16} />
             Dashboard
           </li>
-          <li className="flex gap-4 text-[12px] w-[140px] bg-white rounded px-2 py-[6px] font-bold -ml-2">
-            <img src="/bluePart.svg" alt="" width={16} />
+          <li className="flex gap-4 text-[12px] text-[#5f5f5f]">
+            <img src="/users.svg" alt="" width={16} />
             Participants
           </li>
-          <li className="flex gap-4 text-[12px] text-[#5f5f5f]">
-            <img src="/meetings.svg" alt="" width={16} />
+          <li className="flex gap-4 text-[12px] w-[140px] bg-white rounded px-2 py-[6px] font-bold -ml-2">
+            <img src="/blueMeet.svg" alt="" width={16} />
             Meetings
           </li>
           <li className="flex gap-4 text-[12px] text-[#5f5f5f]">

@@ -182,7 +182,10 @@ export default function CheckCamera({
                 onClick={onClick}
               >
                 {loading ? (
-                  <ClipLoader color="#36D7B7" loading={loading} size={16} />
+                  <div className="flex justify-center items-center gap-2">
+                    <ClipLoader color="#36D7B7" loading={loading} size={16} />
+                    <p>Waiting to be admitted</p>
+                  </div>
                 ) : (
                   'ASK TO JOIN'
                 )}

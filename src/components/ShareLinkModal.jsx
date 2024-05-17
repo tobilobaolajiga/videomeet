@@ -32,7 +32,7 @@ export default function ShareLinkModal({
   return (
     <div>
       {shareLink && (
-        <div className="absolute bg-white rounded-md py-4 px-4 bottom-[80px] left-12">
+        <div className="absolute bg-white rounded-md py-4 px-4 bottom-[80px] left-12 z-50">
           <div className="flex justify-between pb-2 border-b">
             <p className="font-inter text-[12px] font-semibold">
               Your meeting is in progress

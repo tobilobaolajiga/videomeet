@@ -27,27 +27,6 @@ export default function CreateMeetingOptions({
   meetingLink,
   verifyOTP,
 }) {
-  const [joinInfo, setjoinInfo] = useState(false);
-  // const [bg, setBg] = useState('bg- #ffffff');
-  // const [text, setText] = useState('text-#454545');
-
-  const showJoinInfo = () => {
-    meetingLink();
-    // setBg('bg-#36aad9');
-    // setText('text-#ffffff');
-    setjoinInfo(!joinInfo);
-    setOptions(options);
-    const body = document.querySelector('#body');
-    body.style.position = 'fixed';
-  };
-
-  const closeJoinInfo = () => {
-    setjoinInfo(!joinInfo);
-    !showOptions();
-    const body = document.querySelector('#body');
-    body.style.position = '';
-  };
-
   return (
     <div>
       <div>

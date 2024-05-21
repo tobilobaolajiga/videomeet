@@ -73,7 +73,10 @@ export default function Hero({
                 className="font-inter text-[#454545] tracking-tight max-w-fit shadow-md border-opacity-10 absolute left-0 bg-white top-[40px] z-50 sm:text-[13px] md:text-[14px] 
 "
               >
-                <li className="flex gap-[12px] items-center border border-[#c6c6c6] pl-[12px] pr-[24px] py-[10px] rounded-t-md hover:bg-[#36AAD9] hover:text-white group cursor-pointer">
+                <li
+                  className="flex gap-[12px] items-center border border-[#c6c6c6] pl-[12px] pr-[24px] py-[10px] rounded-t-md hover:bg-[#36AAD9] hover:text-white group cursor-pointer"
+                  onClick={showLogin}
+                >
                   <svg
                     width="19"
                     height="15"
@@ -89,7 +92,10 @@ export default function Hero({
                   </svg>
                   Create link for meeting
                 </li>
-                <li className="flex gap-[12px] items-center border-x border-b border-[#c6c6c6] pl-[12px] pr-[35px] py-[10px] rounded-b-md hover:bg-[#36AAD9] hover:text-white group cursor-pointer">
+                <li
+                  className="flex gap-[12px] items-center border-x border-b border-[#c6c6c6] pl-[12px] pr-[35px] py-[10px] rounded-b-md hover:bg-[#36AAD9] hover:text-white group cursor-pointer"
+                  onClick={showLogin}
+                >
                   <svg
                     width="20"
                     height="17"

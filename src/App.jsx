@@ -178,9 +178,9 @@ export default function App() {
     new Date(currentDate.getTime() + 60 * 1000)
   );
   const token = localStorage.getItem('userToken');
-
+  const [linkLoading, setLinkLoading] = useState(false);
   const meetingLink = async () => {
-    navigator;
+    setLinkLoading(true);
     const startTime = `${currentDate.getFullYear()}-${(
       currentDate.getMonth() + 1
     )
@@ -198,9 +198,14 @@ export default function App() {
 
     const endTime = `${nextDate.getFullYear()}-${(nextDate.getMonth() + 1)
       .toString()
-      .padStart(2, '0')}-${nextDate.getDate().toString().padStart(2, '0')}T${
-      nextDate.getHours() + (1).toString().padStart(2, '0')
-    }:${nextDate.getMinutes().toString().padStart(2, '0')}:00Z`;
+      .padStart(2, '0')}-${nextDate.getDate().toString().padStart(2, '0')}T${(
+      nextDate.getHours() + 1
+    )
+      .toString()
+      .padStart(2, '0')}:${nextDate
+      .getMinutes()
+      .toString()
+      .padStart(2, '0')}:00Z`;
     console.log(nextDate);
     console.log(startTime);
     console.log(endTime);
@@ -223,6 +228,12 @@ export default function App() {
       );
       console.log(response?.data?.data);
       toast.success(response.data.message);
+      localStorage.setItem(
+        'NowLink',
+        `${window.location.origin}/check/${response?.data?.data?.meetingId}`
+      );
+      setjoinInfo(true);
+      setLinkLoading(false);
       // localStorage.setItem(
       //   'meetingId',
       //   `${window.location.origin}/check/${response?.data?.referenceId}`
@@ -237,6 +248,26 @@ export default function App() {
       console.log(error.status);
       console.log(error.message);
     }
+  };
+  const [joinInfo, setjoinInfo] = useState(false);
+  // const [bg, setBg] = useState('bg- #ffffff');
+  // const [text, setText] = useState('text-#454545');
+
+  const showJoinInfo = () => {
+    meetingLink();
+    // setBg('bg-#36aad9');
+    // setText('text-#ffffff');
+    // setjoinInfo(!joinInfo);
+    setOptions(options);
+    const body = document.querySelector('#body');
+    body.style.position = 'fixed';
+  };
+
+  const closeJoinInfo = () => {
+    setjoinInfo(!joinInfo);
+    !showOptions();
+    const body = document.querySelector('#body');
+    body.style.position = '';
   };
   return (
     <BrowserRouter>
@@ -310,6 +341,10 @@ export default function App() {
                 sendOTP={sendOTP}
                 resendOTP={resendOTP}
                 loading={loading}
+                showJoinInfo={showJoinInfo}
+                closeJoinInfo={closeJoinInfo}
+                joinInfo={joinInfo}
+                linkLoading={linkLoading}
               />
             }
           />

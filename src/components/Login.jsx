@@ -94,6 +94,10 @@ export default function Login({
     }
   };
 
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const togglePasswordVisibility = () => {
+    userPassword ? setPasswordVisible(!passwordVisible) : '';
+  };
   return (
     <div>
       <div>
@@ -161,7 +165,7 @@ export default function Login({
                   </label>{' '}
                   <br />
                   <input
-                    type="password"
+                    type={passwordVisible ? 'text' : 'password'}
                     value={userPassword}
                     onChange={(e) => setUserPassword(e.target.value)}
                     placeholder="Enter your password"
@@ -172,6 +176,13 @@ export default function Login({
                     alt=""
                     width={12}
                     className="absolute bottom-[21px] left-[12px]"
+                  />
+                  <img
+                    src={passwordVisible ? 'dontshow.svg' : '/show.svg'}
+                    alt=""
+                    width={14}
+                    className="absolute right-4 bottom-[20px]"
+                    onClick={togglePasswordVisibility}
                   />
                 </form>
                 <button

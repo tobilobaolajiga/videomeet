@@ -82,12 +82,14 @@ export default function AfterLeaveMeeting({
     'videoId',
     'meetId',
   ];
+  const userId = localStorage.getItem('userId');
+  const ref = localStorage.getItem('ref');
   const navigate = useNavigate();
   const goHome = () => {
     keysToRemove.forEach((key) => {
       localStorage.removeItem(key);
     });
-    navigate('/');
+    userId ? navigate(`/login/${ref}`) : navigate('/');
   };
   const meetingCode = localStorage.getItem('meetingCode');
   const rejoin = () => {

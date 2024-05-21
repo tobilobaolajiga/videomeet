@@ -13,7 +13,7 @@ export default function JoiningInfo({ joinInfo, showJoinInfo, closeJoinInfo }) {
     <div>
       {joinInfo && (
         <div className="fixed z-50 top-0 left-0 w-full h-screen bg-[#000000] bg-opacity-25 cursor-pointer flex justify-center ">
-          <div className="bg-white m-auto w-fit rounded-2xl h-fit pb-6">
+          <div className="bg-white m-auto w-[400px] rounded-2xl h-[200px] pb-6">
             <div className="px-6 py-[16px] flex justify-center relative border-b border-[#EAECF0]">
               <p className="font-inter font-semibold text-[16px] tracking-tight ">
                 Joining information{' '}
@@ -27,10 +27,10 @@ export default function JoiningInfo({ joinInfo, showJoinInfo, closeJoinInfo }) {
               />
             </div>
 
-            <div className="px-[20px] pt-[14px] pb-[12px] border-b ">
-              <p className="text-[#667085] font-inter text-[10px] leading-tight opacity-95 font-[410px] text-wrap">
-                Send the link to invite people to join meeting.
-                <br /> Make sure you save the link for future purpose.
+            <div className="px-[20px] pt-[14px] pb-[12px] mt-4">
+              <p className="text-[#667085] font-inter text-[12px] leading-tight opacity-95 font-[410px] text-wrap">
+                Send the link to invite people to join meeting. Make sure you
+                save the link for future purpose.
               </p>
               {/* <div className="relative ">
                 <input
@@ -48,27 +48,27 @@ export default function JoiningInfo({ joinInfo, showJoinInfo, closeJoinInfo }) {
                   />
                 </p>
               </div> */}
-              <div className="relative">
+              <div className="relative mt-4">
                 <input
                   type="text"
                   className="w-full border border-[#D0D5DD] bg-[#F4F4F4] py-[2px] px-[3px] my-[4px] rounded-lg shadow-sm "
                 />
-                <div className="absolute text-[9px]  text-[#667085] left-2 bottom-[12px] font-inter tracking-tight text-nowrap">
-                  <p className="w-[190px] overflow-x-clip">
-                    <span>{localStorage.getItem('meetingId')}</span>
+                <div className="absolute text-[9px] w-[340px] text-[#667085] left-2 bottom-[12px] font-inter tracking-tight text-nowrap">
+                  <p className="w-[300px] overflow-x-clip pl-2 text-[12px]">
+                    <span>{localStorage.getItem('NowLink')}</span>
                   </p>
                   <img
                     width={14}
                     src="/tabler_copy.svg"
                     alt=""
-                    className="absolute bottom-[1px] -right-[6px]"
+                    className="absolute bottom-[1px] right-0"
                     onClick={copyToClipboard}
                   />
                 </div>
               </div>
             </div>
 
-            <div className="px-[20px] pt-[12px] ">
+            {/* <div className="px-[20px] pt-[12px] ">
               <p className="text-[#667085] font-inter text-[10px] leading-tight tracking-tight font-normal opacity-95 text-wrap">
                 To invite people to join meeting, you can
                 <span className="text-[#36AAD9]"> share </span> <br /> the link
@@ -85,8 +85,8 @@ export default function JoiningInfo({ joinInfo, showJoinInfo, closeJoinInfo }) {
                   Invite
                 </button>
               </div>
-            </div>
-
+            </div> */}
+            {/* 
             <div className="px-[20px] py-[2px] font-inter">
               <ul className="flex flex-col justify-center gap-2 border-b border-[#D0D5DD]/30 pb-4 ">
                 <li className="flex justify-between items-center">
@@ -112,9 +112,9 @@ export default function JoiningInfo({ joinInfo, showJoinInfo, closeJoinInfo }) {
                   </span>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
-            <div className="px-[20px] py-[2px] font-inter">
+            {/* <div className="px-[20px] py-[2px] font-inter">
               <p className="text-[9px] font-medium py-[7px] tracking-tighter">
                 Suggestion
               </p>
@@ -138,7 +138,7 @@ export default function JoiningInfo({ joinInfo, showJoinInfo, closeJoinInfo }) {
                   </span>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

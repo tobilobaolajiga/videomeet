@@ -186,6 +186,8 @@ export default function CheckCamera({
                     <ClipLoader color="#36D7B7" loading={loading} size={16} />
                     <p>Waiting to be admitted</p>
                   </div>
+                ) : hostAgent ? (
+                  'JOIN'
                 ) : (
                   'ASK TO JOIN'
                 )}

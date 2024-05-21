@@ -12,6 +12,7 @@ import { ClipLoader } from 'react-spinners';
 import toast from 'react-hot-toast';
 import { v4 as uuidv4 } from 'uuid';
 import Reviews from './Reviews';
+import JoiningInfo from './JoiningInfo';
 export default function LoginSuccessful({
   schedule,
   showSchedule,
@@ -27,12 +28,17 @@ export default function LoginSuccessful({
   setPwd,
   sendOTP,
   resendOTP,
+  showJoinInfo,
+  closeJoinInfo,
+  joinInfo,
+  linkLoading,
 }) {
   const [options, setOptions] = useState(false);
   const showOptions = () => {
     setOptions(!options);
   };
   const [loading, setLoading] = useState(false);
+
   const token = localStorage.getItem('userToken');
   const navigate = useNavigate();
 
@@ -129,7 +135,10 @@ export default function LoginSuccessful({
                     className="font-inter text-[#454545] tracking-tight max-w-fit shadow-md border-opacity-10 absolute left-0 bg-white top-[40px] z-50 sm:text-[13px] md:text-[14px] 
 "
                   >
-                    <li className="flex gap-[12px] items-center border border-[#c6c6c6] pl-[12px] pr-[24px] py-[10px] rounded-t-md hover:bg-[#36AAD9] hover:text-white group cursor-pointer">
+                    <li
+                      className="flex gap-[12px] items-center border border-[#c6c6c6] pl-[12px] pr-[24px] py-[10px] rounded-t-md hover:bg-[#36AAD9] hover:text-white group cursor-pointer"
+                      onClick={showJoinInfo}
+                    >
                       <svg
                         width="19"
                         height="15"
@@ -143,7 +152,19 @@ export default function LoginSuccessful({
                           fill="#667085"
                         />
                       </svg>
-                      Create link for meeting
+                      {linkLoading ? (
+                        <div className="flex gap-2 items-center justify-center">
+                          <ClipLoader
+                            color="#36D7B7"
+                            loading={linkLoading}
+                            size={16}
+                            className="flex justify-center"
+                          />
+                          <p>Creating...</p>
+                        </div>
+                      ) : (
+                        'Create link for meeting'
+                      )}
                     </li>
                     <li
                       className="flex gap-[12px] items-center border-x border-b border-[#c6c6c6] pl-[12px] pr-[35px] py-[10px] rounded-b-md hover:bg-[#36AAD9] hover:text-white group cursor-pointer"
@@ -210,6 +231,11 @@ export default function LoginSuccessful({
           setPwd={setPwd}
           sendOTP={sendOTP}
           resendOTP={resendOTP}
+        />
+        <JoiningInfo
+          joinInfo={joinInfo}
+          showJoinInfo={showJoinInfo}
+          closeJoinInfo={closeJoinInfo}
         />
       </div>
     </div>

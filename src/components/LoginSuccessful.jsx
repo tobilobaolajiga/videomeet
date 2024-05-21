@@ -56,10 +56,11 @@ export default function LoginSuccessful({
       console.log(response);
       const data = response;
       console.log(data);
-      setLoading(false);
+
       localStorage.setItem('meeting', data?.data?.data);
       localStorage.setItem('videoId', data?.data?.referenceId);
       window.location.href = data?.data?.data;
+      setLoading(false);
       // const url = data?.data?.data;
       // const meetingCode = url.substring(28, 65);
       // localStorage.setItem('meetingCode', meetingCode);
@@ -162,12 +163,15 @@ export default function LoginSuccessful({
                         />
                       </svg>
                       {loading ? (
-                        <ClipLoader
-                          color="#36D7B7"
-                          loading={loading}
-                          size={16}
-                          className="flex justify-center"
-                        />
+                        <div className="flex gap-2 items-center justify-center">
+                          <ClipLoader
+                            color="#36D7B7"
+                            loading={loading}
+                            size={16}
+                            className="flex justify-center"
+                          />
+                          <p>Creating...</p>
+                        </div>
                       ) : (
                         'Start a meeting now'
                       )}

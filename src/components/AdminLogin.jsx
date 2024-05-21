@@ -1,7 +1,83 @@
+import axios from 'axios';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
 
-export default function AdminLogin() {
+export default function AdminLogin({
+  adminEmail,
+  setAdminEmail,
+  adminPassword,
+  setAdminPassword,
+}) {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [adminId, setAdminId] = useState('');
+
+  const adminLogin = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        import.meta.env.VITE_BASE_URL + 'auth/login',
+        {
+          email: adminEmail,
+          password: adminPassword,
+        }
+      );
+      const data = response;
+      console.log(data?.data?.data?.token?.refreshToken);
+      localStorage.setItem('adminToken', data?.data?.data?.token?.refreshToken);
+      localStorage.setItem('ref', data?.data?.referenceId);
+      // setLogin(false);
+      setLoading(false);
+      const ref = localStorage.getItem('ref');
+      console.log(ref);
+      navigate(`/dashboard/${ref}`);
+      console.log(data);
+      console.log(localStorage.getItem('userData'));
+      console.log(localStorage.getItem('adminToken'));
+      console.log(data?.data?.data?.token?.refreshToken);
+      try {
+        const token = localStorage.getItem('adminToken');
+        const response = await axios.get(
+          import.meta.env.VITE_BASE_URL + 'profile/me',
+
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response?.data?.data?.user);
+        localStorage.setItem(
+          'adminData',
+          JSON.stringify(response?.data?.data?.user)
+        );
+        localStorage.setItem('userId', response?.data?.data?.user?.id);
+        setLoading(false);
+        console.log(response);
+      } catch (error) {
+        setLoading(false);
+        toast.error(error.message);
+      }
+    } catch (error) {
+      setError(error.response.data.message);
+      toast.error(error.response.data.message);
+      const userNo = error?.response?.data?.data?.userId;
+      setAdminId(userNo);
+      localStorage.setItem('userId', error?.response?.data?.data?.userId);
+      if (error.response.data.message === 'please verify your account') {
+        setLoading(false);
+        // setOTP(!otp);
+        // setLogin(!login);
+      }
+      console.log(error?.response?.data?.data?.userId);
+      console.log(error.response.data.message);
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex w-full justify-center">
       <div className=" ml-[70px] mt-[80px] mb-[60px] basis-1/2 ">
@@ -24,6 +100,8 @@ export default function AdminLogin() {
               <br />
               <input
                 type="text"
+                value={adminEmail}
+                onChange={(e) => setAdminEmail(e.target.value)}
                 className="border w-full rounded mb-4 outline-none py-[6px] placeholder:text-[12px] px-4 font-inter text-[12px]"
                 placeholder="Enter your email"
               />
@@ -36,6 +114,8 @@ export default function AdminLogin() {
               </label>
               <br />
               <input
+                value={adminPassword}
+                onChange={(e) => setAdminPassword(e.target.value)}
                 type="password"
                 className="border w-full rounded-md mb-4 outline-none py-[6px] placeholder:text-[12px] px-4 font-inter text-[12px]"
                 placeholder="Enter your password"
@@ -59,8 +139,15 @@ export default function AdminLogin() {
                 Forgot password
               </p>
             </div>
-            <button className="w-full bg-[#36aad9] text-white rounded-md py-[8px] text-[12px]">
-              Sign in
+            <button
+              className="w-full bg-[#36aad9] text-white rounded-md py-[8px] text-[12px]"
+              onClick={adminLogin}
+            >
+              {loading ? (
+                <ClipLoader color="#36D7B7" loading={loading} size={16} />
+              ) : (
+                'Sign In'
+              )}
             </button>
           </div>
         </div>

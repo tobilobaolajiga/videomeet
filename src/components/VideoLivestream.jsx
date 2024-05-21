@@ -24,7 +24,7 @@ export default function VideoLiveStream({
 
   const [guestRequest, setGuestRequest] = useState(false);
   const socket = ioClient('wss://' + import.meta.env.VITE_BASE_URL_SOCKET);
-  const roomId = localStorage.getItem('admitRoom');
+  const roomId = localStorage.getItem('roomId');
   useEffect(() => {
     socket.on('connect', () => {
       console.log('Connected to server');

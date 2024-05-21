@@ -18,6 +18,7 @@ import Participants from './Pages/Participants/Participants';
 import AdminLogin from './components/AdminLogin';
 import ForgotAdminPass from './components/ForgotPassAdmin';
 import Meetings from './Pages/Meetings/Meetings';
+import Reports from './Pages/Reports/Reports';
 
 export default function App() {
   const [mobileModal, setMobileModal] = useState(false);
@@ -36,6 +37,8 @@ export default function App() {
   const [login, setLogin] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
+  const [adminEmail, setAdminEmail] = useState('');
+  const [adminPassword, setAdminPassword] = useState('');
   const [options, setOptions] = useState(false);
   const [otp, setOTP] = useState(false);
   const [newAccount, setNewAccount] = useState(false);
@@ -356,9 +359,22 @@ export default function App() {
               />
             }
           />
-          <Route path="/admin" element={<AdminLogin />} />
+          <Route
+            path="/admin"
+            element={
+              <AdminLogin
+                adminEmail={adminEmail}
+                setAdminEmail={setAdminEmail}
+                adminPassword={adminPassword}
+                setAdminPassword={setAdminPassword}
+              />
+            }
+          />
           <Route path="/admin/forgot" element={<ForgotAdminPass />} />
+          <Route path="/dashboard/:ref" element={<Dashboard />} />
+          <Route path="/participants" element={<Participants />} />
           <Route path="/meetings" element={<Meetings />} />
+          <Route path="/reports" element={<Reports />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,4 +1,5 @@
 import MeetingsHeader from './MeetingsHeader';
+import MeetingsList from './MeetingsList';
 import MeetingsMenu from './MeetingsMenu';
 import MeetingsNav from './MeetingsNav';
 
@@ -15,7 +16,7 @@ export default function Meetings() {
         </div>
 
         <MeetingsHeader />
-        {/* <PartList /> */}
+        <MeetingsList />
       </div>
     </div>
   );

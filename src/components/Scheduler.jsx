@@ -212,7 +212,7 @@ export default function Scheduler({
     <div>
       {scheduler && (
         <div className="fixed z-50 top-0 left-0 w-full h-screen sm:bg-white  lg:bg-[#000000] lg:bg-opacity-25 cursor-pointer sm:flex sm:justify-center sm:items-center  ">
-          <div className="w-fit rounded-xl h-fit shadow-lg  bg-white relative">
+          <div className=" w-fit h-fit md:w-[350px] rounded-xl md:h-[450px] shadow-lg  bg-white relative">
             <div className="border-b">
               <img
                 src="/cross.svg"
@@ -221,12 +221,12 @@ export default function Scheduler({
                 className="absolute right-[25px] pt-[8px]"
                 onClick={closeScheduler}
               />
-              <p className="text-center py-[13px] font-inter font-semibold text-[14px]">
+              <p className="text-center py-[13px] font-inter font-semibold text-[16px]">
                 Schedule New Meeting
               </p>
             </div>
             <div className="py-4 px-6 font-inter">
-              <p className="text-[10px] font-medium opacity-95 pb-[6px]">
+              <p className="text-[12px] font-medium opacity-95 pb-[6px]">
                 Meeting Title
               </p>
               <div className="flex ">
@@ -277,7 +277,7 @@ export default function Scheduler({
                 </li>
               </ul>
               <div className="">
-                <p className="font-DMSans px-6 py-[10px] text-[10px] font-semibold text-[#344054]">
+                <p className="font-DMSans px-6 py-[10px] text-[11px] font-semibold text-[#344054]">
                   Meeting Date & Time
                 </p>
                 <div
@@ -285,7 +285,7 @@ export default function Scheduler({
                   id="date"
                 >
                   <ReactDatePicker
-                    className="border py-[4px] pl-[24px] font-DMSans w-[90px] outline-none rounded text-[9px] font-semibold cursor-pointer"
+                    className="border py-[4px] pl-[24px] font-DMSans w-[90px] outline-none rounded text-[10px] font-semibold cursor-pointer"
                     selected={selectedDate}
                     onChange={handleDateChange}
                     dateFormat="dd/MM/yyyy"
@@ -300,7 +300,7 @@ export default function Scheduler({
                 </div>
                 <div className="flex items-center">
                   <div
-                    className=" time-picker px-6 py-[4px] ml-6 mr-2 mt-2 mb-2 flex gap-[4px] items-center border w-[90px]  rounded text-[9px] font-semibold"
+                    className=" time-picker px-6 py-[4px] ml-6 mr-2 mt-2 mb-2 flex gap-[4px] items-center border w-[90px]  rounded text-[10px] font-semibold"
                     id="time"
                   >
                     <HourDropdown
@@ -338,7 +338,7 @@ export default function Scheduler({
                     <p className="text-[10px] text-[#667085]">To</p>
                   </div>
                   <div
-                    className=" time-picker px-6 py-[4px] mx-2 mt-2 mb-2 flex gap-[4px] items-center border w-[90px] rounded text-[9px] font-semibold"
+                    className=" time-picker px-6 py-[4px] mx-2 mt-2 mb-2 flex gap-[4px] items-center border w-[90px] rounded text-[10px] font-semibold"
                     id="time"
                   >
                     <EndHourDropdown
@@ -366,7 +366,7 @@ export default function Scheduler({
                     <img
                       src="/clock.svg"
                       alt=""
-                      className="absolute right-[125px]"
+                      className="absolute left-[145px]"
                       width={13}
                     />
                   </div>
@@ -396,10 +396,10 @@ export default function Scheduler({
                     value={guest}
                     onChange={(e) => setGuest(e.target.value)}
                     placeholder="Add guest"
-                    className="border rounded w-full mt-[6px] px-8 py-[4px] placeholder:text-[9px] text-[9px] placeholder:font-inter outline-none"
+                    className="border rounded w-full mt-[6px] px-8 py-[6px] placeholder:text-[9px] text-[9px] placeholder:font-inter outline-none"
                   />
                   <button
-                    className="bg-[#36AAD9] text-white rounded-sm px-[9px] py-[2px] text-[9px] absolute top-[9px] right-[3px]"
+                    className="bg-[#36AAD9] text-white rounded-sm px-[9px] py-[2px] text-[10px] absolute top-[10px] right-[3px]"
                     onClick={() => {
                       addGuests(guest);
                     }}
@@ -410,7 +410,7 @@ export default function Scheduler({
                 <img
                   src="/people.svg"
                   alt=""
-                  className="absolute top-[46px] left-[30px]"
+                  className="absolute top-[48px] left-[30px]"
                   width={15}
                 />
                 {guests ? (
@@ -431,7 +431,7 @@ export default function Scheduler({
             </div>
 
             <button
-              className="border bg-[#36AAD9] px-[12px] py-[4px] rounded text-white text-[9px] mb-4 cursor-pointer absolute bottom-0 right-6"
+              className="border bg-[#36AAD9] px-[12px] py-[4px] rounded text-white text-[10px] mb-4 cursor-pointer absolute bottom-0 right-6"
               onClick={scheduleMeeting}
             >
               {loading ? (

@@ -27,7 +27,7 @@ export default function Description({
     <div>
       {description && (
         <div className="fixed z-50 top-0 left-0 w-full h-screen sm:bg-white  lg:bg-[#000000] lg:bg-opacity-25 cursor-pointer sm:flex sm:justify-center sm:items-center">
-          <div className="w-fit rounded-xl h-fit shadow-lg  bg-white relative">
+          <div className="w-fit md:w-[350px] md:h-[350px] rounded-xl h-fit shadow-lg  bg-white relative">
             <div className="border-b">
               <img
                 src="/cross.svg"
@@ -36,7 +36,7 @@ export default function Description({
                 className="absolute right-[25px] pt-[8px]"
                 onClick={closeDescription}
               />
-              <p className="text-center py-[13px] font-inter font-semibold text-[14px]">
+              <p className="text-center py-[13px] font-inter font-semibold text-[16px]">
                 Schedule New Meeting
               </p>
             </div>
@@ -106,10 +106,10 @@ export default function Description({
                 />
               </div>
             </div>
-            <div className=" py-[6px] flex justify-end -mt-2">
+            <div className=" py-[6px] flex justify-end mt-6">
               <button
                 onClick={showScheduled}
-                className="border bg-[#36AAD9] px-[12px] py-[4px] rounded text-white text-[9px] mr-6"
+                className="border bg-[#36AAD9] px-[12px] py-[4px] rounded text-white text-[11px] mr-6"
               >
                 Save
               </button>

@@ -67,7 +67,7 @@ export default function Reminder({
     <div>
       {reminder && (
         <div className="fixed z-50 top-0 left-0 w-full h-screen sm:bg-white  lg:bg-[#000000] lg:bg-opacity-25 cursor-pointer sm:flex sm:justify-center sm:items-center">
-          <div className="w-fit rounded-xl h-fit shadow-lg  bg-white relative">
+          <div className="w-fit md:h-[420px] rounded-xl h-fit shadow-lg  bg-white relative">
             <div className="border-b">
               <img
                 src="/cross.svg"
@@ -76,7 +76,7 @@ export default function Reminder({
                 className="absolute right-[25px] pt-[8px]"
                 onClick={closeReminder}
               />
-              <p className="text-center py-[13px] font-inter font-semibold text-[14px]">
+              <p className="text-center py-[13px] font-inter font-semibold text-[16px]">
                 Schedule New Meeting
               </p>
             </div>
@@ -132,7 +132,7 @@ export default function Reminder({
               </ul>
               <div className="py-[10px] px-6 relative">
                 <div>
-                  <p className="text-[10px] pb-[2px] font-semibold">
+                  <p className="text-[11px] pb-[2px] font-semibold">
                     Reminder 1
                   </p>
                   <div
@@ -140,7 +140,7 @@ export default function Reminder({
                     id="date"
                   >
                     <ReactDatePicker
-                      className="border py-[4px] pl-[24px] font-DMSans w-[90px] outline-none rounded text-[9px] font-semibold cursor-pointer"
+                      className="border py-[4px] pl-[24px] font-DMSans w-[90px] outline-none rounded text-[10px] font-semibold cursor-pointer"
                       selected={reminderDate}
                       onChange={handleReminderDate}
                       dateFormat="dd/MM/yyyy"
@@ -154,7 +154,7 @@ export default function Reminder({
                     />
                   </div>
                   <div
-                    className=" time-picker px-6 py-[4px] mr-2 mt-2 mb-2 flex gap-[4px] items-center border w-[90px]  rounded text-[9px] font-semibold"
+                    className=" time-picker px-6 py-[4px] mr-2 mt-2 mb-2 flex gap-[4px] items-center border w-[90px]  rounded text-[10px] font-semibold"
                     id="time"
                   >
                     <RemHour
@@ -191,7 +191,7 @@ export default function Reminder({
                   </div>
                 </div>
                 <div>
-                  <p className="text-[10px] pb-[2px] font-semibold">
+                  <p className="text-[11px] pb-[2px] font-semibold">
                     Reminder 2
                   </p>
                   <div
@@ -199,7 +199,7 @@ export default function Reminder({
                     id="date"
                   >
                     <ReactDatePicker
-                      className="border py-[4px] pl-[24px] font-DMSans w-[90px] outline-none rounded text-[9px] font-semibold cursor-pointer"
+                      className="border py-[4px] pl-[24px] font-DMSans w-[90px] outline-none rounded text-[10px] font-semibold cursor-pointer"
                       selected={reminderDateTwo}
                       onChange={handleReminderDateTwo}
                       dateFormat="dd/MM/yyyy"
@@ -213,7 +213,7 @@ export default function Reminder({
                     />
                   </div>
                   <div
-                    className=" time-picker px-6 py-[4px] mr-2 mt-2 mb-2 flex gap-[4px] items-center border w-[90px]  rounded text-[9px] font-semibold"
+                    className=" time-picker px-6 py-[4px] mr-2 mt-2 mb-2 flex gap-[4px] items-center border w-[90px]  rounded text-[10px] font-semibold"
                     id="time"
                   >
                     <RemHourTwo
@@ -258,7 +258,7 @@ export default function Reminder({
             <div className=" py-[6px] flex justify-end">
               <button
                 onClick={showScheduled}
-                className="border bg-[#36AAD9] px-[12px] py-[4px] rounded text-white text-[9px] mr-6"
+                className="border bg-[#36AAD9] px-[12px] py-[4px] rounded text-white text-[11px] mr-6 mt-2"
               >
                 Save
               </button>

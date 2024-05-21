@@ -26,7 +26,7 @@ export default function ScheduledMeeting({
   return (
     <div>
       <div className="fixed z-50 top-0 left-0 w-full h-screen sm:bg-white  lg:bg-[#000000] lg:bg-opacity-25 cursor-pointer sm:flex sm:justify-center sm:items-center">
-        <div className="w-fit rounded-xl h-fit shadow-lg bg-white relative pb-6">
+        <div className="w-fit rounded-xl md:w-[350px] md:h-[420px] h-fit shadow-lg bg-white relative pb-6">
           <div className="border-b">
             <img
               onClick={closeMeeting}
@@ -35,7 +35,7 @@ export default function ScheduledMeeting({
               width={13}
               className="absolute right-[25px] pt-[8px]"
             />
-            <p className="text-center py-[15px] font-inter font-semibold text-[14px] outline-none rounded-2xl w-full ">
+            <p className="text-center py-[15px] font-inter font-semibold text-[16px] outline-none rounded-2xl w-full ">
               {meetingDetails?.meetingName}
             </p>
           </div>
@@ -63,17 +63,17 @@ export default function ScheduledMeeting({
               type="text"
               className="w-full border border-[#D0D5DD] bg-[#F4F4F4] py-[2px] px-[3px] my-[4px] rounded-lg shadow-sm"
             />
-            <div className="absolute text-[9px]  text-[#667085] left-2 bottom-[12px] font-inter tracking-tight text-nowrap">
-              <p className=" overflow-x-clip sm:w-[150px] w-[190px]">
+            <div className="absolute text-[9px]  text-[#667085] left-2 bottom-[12px] font-inter tracking-tight text-nowrap w-full">
+              <p className=" overflow-x-clip w-[150px] md:w-4/5">
                 {`${window.location.origin}/check/${meetingDetails.meetingId}`}
-                <img
-                  width={14}
-                  src="/tabler_copy.svg"
-                  alt=""
-                  className="absolute -top-[1px] -right-[20px]"
-                  onClick={copyToClipboard}
-                />
               </p>
+              <img
+                width={14}
+                src="/tabler_copy.svg"
+                alt=""
+                className="absolute md:top-[1px] md:right-4 right-[14px] bottom-[0px]"
+                onClick={copyToClipboard}
+              />
             </div>
           </div>
           <div className="mx-6">

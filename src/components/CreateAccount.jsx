@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import CreatePassword from './CreatePassword';
 import toast from 'react-hot-toast';
+import axios from 'axios';
+import { ClipLoader } from 'react-spinners';
 export default function CreateAccount({
   newAccount,
   showCreateAccount,
@@ -30,15 +32,34 @@ export default function CreateAccount({
   isLoading,
   setIsLoading,
 }) {
+  const [load, setLoad] = useState(false);
   const passwordModal = () => {
     setNewAccount(false);
     setPassword(!password);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // !showEnterAll();
-    passwordModal();
+    setLoad(true);
+    try {
+      const response = await axios.post(
+        import.meta.env.VITE_BASE_URL + 'profile/validateemail',
+        {
+          email: email,
+        }
+      );
+      console.log(response?.data?.data);
+      toast.success(response.data.message);
+      setLoad(false);
+
+      passwordModal();
+    } catch (error) {
+      setLoad(false);
+      toast.error(error.message);
+
+      console.log(error.status);
+      console.log(error.message);
+    }
   };
   const [enterDetails, setEnterDetails] = useState(false);
   const showEnterAll = () => {
@@ -163,7 +184,11 @@ export default function CreateAccount({
                     name && lastname && email ? handleSubmit : showEnterAll
                   }
                 >
-                  Continue
+                  {load ? (
+                    <ClipLoader loading={load} size={16} color="#36D7B7" />
+                  ) : (
+                    'Continue'
+                  )}
                 </button>
 
                 <p className="text-center pt-2 text-[#667085] text-[10px]">

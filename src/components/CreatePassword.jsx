@@ -83,7 +83,10 @@ export default function CreatePassword({
     console.log(e.target.value);
     changeColor(e);
   };
-
+  const showCreate = () => {
+    !passwordModal();
+    showCreateAccount();
+  };
   return (
     <div>
       {password && (
@@ -249,7 +252,7 @@ export default function CreatePassword({
               </p>
               <p
                 className=" text-[#667085] text-[9px] opacity-60 flex gap-2 items-center justify-center pt-[10px]"
-                onClick={passwordModal}
+                onClick={showCreate}
               >
                 <img src="/arrowLef.svg" alt="" width={9} />
                 Back to create account

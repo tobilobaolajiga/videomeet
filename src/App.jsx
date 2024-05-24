@@ -216,7 +216,7 @@ export default function App() {
 
     try {
       const response = await axios.post(
-        'https://api-meet.tm-dev.xyz/api/v1/meeting/schedule-meeting',
+        import.meta.env.VITE_BASE_URL + 'meeting/schedule-meeting',
         {
           emails: [userData.email],
           meetingTime: startTime,

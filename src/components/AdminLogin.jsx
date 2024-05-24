@@ -19,7 +19,7 @@ export default function AdminLogin({
     setLoading(true);
     try {
       const response = await axios.post(
-        import.meta.env.VITE_BASE_URL + 'auth/login',
+        import.meta.env.VITE_BASE_URL + 'admin/logins',
         {
           email: adminEmail,
           password: adminPassword,

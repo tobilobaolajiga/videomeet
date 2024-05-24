@@ -32,8 +32,15 @@ export default function LoginSuccessful({
   closeJoinInfo,
   joinInfo,
   linkLoading,
+  displayName,
+  setDisplayName,
+  isAudioOn,
+  isVideoOn,
+  setIsAudioOn,
+  setIsVideoOn,
 }) {
   const [options, setOptions] = useState(false);
+  const userData = JSON.parse(localStorage.getItem('userData'));
   const showOptions = () => {
     setOptions(!options);
   };
@@ -62,15 +69,58 @@ export default function LoginSuccessful({
       console.log(response);
       const data = response;
       console.log(data);
-
+      const meeting = data?.data?.data;
+      console.log(meeting);
+      const meetingCode = meeting.substring(28, 65);
       localStorage.setItem('meeting', data?.data?.data);
+      localStorage.setItem('meetingCode', meetingCode);
       localStorage.setItem('videoId', data?.data?.referenceId);
-      window.location.href = data?.data?.data;
+
+      try {
+        console.log(meetingCode);
+        const response = await axios.get(
+          import.meta.env.VITE_BASE_URL + `meeting/particular/${meetingCode}`,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        localStorage.setItem('meetingName', response?.data?.data?.meetingName);
+        localStorage.setItem(
+          'meetingDeets',
+          JSON.stringify(response?.data?.data)
+        );
+        localStorage.setItem(
+          'roomId',
+          JSON.stringify(response?.data?.data?.userId)
+        );
+        console.log(localStorage.getItem('meetingDeets'));
+      } catch (error) {
+        console.log(error);
+        // console.log(error.response.data.status);
+        console.log(error.message);
+      }
+
+      const meetingName = localStorage.getItem('meetingName');
+      setDisplayName(userData?.fullName);
+      setIsAudioOn(true);
+      setIsVideoOn(true);
+      // window.location.href = data?.data?.data;
       setLoading(false);
       // const url = data?.data?.data;
       // const meetingCode = url.substring(28, 65);
       // localStorage.setItem('meetingCode', meetingCode);
-      // navigate(`/video/${meetingCode}`);
+      navigate(`/video/${meetingCode}`, {
+        state: {
+          isVideoOn,
+          isAudioOn,
+          displayName,
+          meetingName,
+        },
+      });
       console.log(data);
     } catch (error) {
       setLoading(false);

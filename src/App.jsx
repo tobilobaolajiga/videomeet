@@ -24,6 +24,9 @@ export default function App() {
   const [mobileModal, setMobileModal] = useState(false);
   const [mobileSchedule, setMobileSchedule] = useState(false);
   const [resScheduler, setResScheduler] = useState(true);
+  const [isVideoOn, setIsVideoOn] = useState(true);
+  const [isAudioOn, setIsAudioOn] = useState(true);
+  const [displayName, setDisplayName] = useState('');
   const showMobileModal = () => {
     setMobileModal(!mobileModal);
   };
@@ -180,6 +183,7 @@ export default function App() {
   const token = localStorage.getItem('userToken');
   const [linkLoading, setLinkLoading] = useState(false);
   const meetingLink = async () => {
+    console.log(userData?.email);
     setLinkLoading(true);
     const startTime = `${currentDate.getFullYear()}-${(
       currentDate.getMonth() + 1
@@ -244,6 +248,7 @@ export default function App() {
       console.log(response?.data?.data?.meetingLink);
       console.log(response?.data?.referenceId);
     } catch (error) {
+      setLinkLoading(false);
       toast.error(error.message);
       console.log(error.status);
       console.log(error.message);
@@ -345,6 +350,12 @@ export default function App() {
                 closeJoinInfo={closeJoinInfo}
                 joinInfo={joinInfo}
                 linkLoading={linkLoading}
+                displayName={displayName}
+                setDisplayName={setDisplayName}
+                isAudioOn={isAudioOn}
+                isVideoOn={isVideoOn}
+                setIsAudioOn={setIsAudioOn}
+                setIsVideoOn={setIsVideoOn}
               />
             }
           />
@@ -375,6 +386,12 @@ export default function App() {
             // path="/check"
             element={
               <CheckCamera
+                displayName={displayName}
+                setDisplayName={setDisplayName}
+                isAudioOn={isAudioOn}
+                isVideoOn={isVideoOn}
+                setIsAudioOn={setIsAudioOn}
+                setIsVideoOn={setIsVideoOn}
                 profileDrop={profileDrop}
                 setProfileDrop={setProfileDrop}
                 showProfDrop={showProfDrop}
@@ -384,7 +401,10 @@ export default function App() {
             }
           />
 
-          <Route path="/video/:meetingId" element={<VideoLiveStream />} />
+          <Route
+            path="/video/:meetingId"
+            element={<VideoLiveStream displayName={displayName} />}
+          />
           <Route
             path="/leave"
             element={

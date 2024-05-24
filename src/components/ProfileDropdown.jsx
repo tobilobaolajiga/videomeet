@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { ClipLoader } from 'react-spinners';
 import ResetPassword from './ResetPassword';
+import MailReset from './MailReset';
+import ResetOTP from './ResetOTP';
 export default function ProfileDropdown({
   profileDrop,
   showProfDrop,
@@ -15,6 +17,7 @@ export default function ProfileDropdown({
 }) {
   const userData = JSON.parse(localStorage.getItem('userData'));
   const token = localStorage.getItem('userToken');
+  const [otpLoading, setOtpLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -41,10 +44,38 @@ export default function ProfileDropdown({
       toast.error(error.response.data.message);
     }
   };
+  const [mailReset, setMailReset] = useState(false);
+  const [resetOtp, setResetOtp] = useState(false);
   const [resetPwd, setResetPwd] = useState(false);
   const showResetPwd = () => {
     setResetPwd(!resetPwd);
+    setResetOtp(false);
     profileDrop ? !showProfDrop() : '';
+  };
+  const showMailReset = () => {
+    setMailReset(!mailReset);
+    profileDrop ? !showProfDrop() : '';
+  };
+  const [userMail, setUserMail] = useState('');
+
+  const otpReset = async () => {
+    setOtpLoading(true);
+    try {
+      const response = await axios.post(
+        import.meta.env.VITE_BASE_URL + 'auth/resend-otp',
+        {
+          email: userMail,
+        }
+      );
+      const data = response;
+      console.log(data);
+      setOtpLoading(false);
+      setMailReset(false);
+      setResetOtp(true);
+    } catch (error) {
+      setOtpLoading(false);
+      toast.error(error.response.data.message);
+    }
   };
   return (
     <div>
@@ -62,7 +93,7 @@ export default function ProfileDropdown({
           <div className="border-4 border-[#5F5F67] border-opacity-10 rounded-md mt-[20px]">
             <div
               className="flex gap-4 items-center border-b py-[12px] justify-start pl-6 cursor-pointer"
-              onClick={showResetPwd}
+              onClick={showMailReset}
             >
               <img src="/settings.svg" alt="" width={15} />{' '}
               <p className="text-[#1A1A1A] text-opacity-70 text-[10px] font-semibold pr-6">
@@ -85,11 +116,21 @@ export default function ProfileDropdown({
           </div>
         </div>
       )}
-      {resetPwd && (
-        <ResetPassword
-          sendOTP={sendOTP}
+      {mailReset && (
+        <MailReset
+          userMail={userMail}
+          setUserMail={setUserMail}
+          otpReset={otpReset}
+          otpLoading={otpLoading}
+        />
+      )}
+      {resetOtp && (
+        <ResetOTP
+          resetPwd={resetPwd}
           resendOTP={resendOTP}
           showResetPwd={showResetPwd}
+          setResetPwd={setResetPwd}
+          userMail={userMail}
         />
       )}
     </div>

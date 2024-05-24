@@ -13,7 +13,7 @@ export default function JoiningInfo({ joinInfo, showJoinInfo, closeJoinInfo }) {
     <div>
       {joinInfo && (
         <div className="fixed z-50 top-0 left-0 w-full h-screen bg-[#000000] bg-opacity-25 cursor-pointer flex justify-center ">
-          <div className="bg-white m-auto w-[400px] rounded-2xl h-[200px] pb-6">
+          <div className="bg-white m-auto lg:w-[400px] w-[340px] rounded-2xl lg:h-[200px] pb-6">
             <div className="px-6 py-[16px] flex justify-center relative border-b border-[#EAECF0]">
               <p className="font-inter font-semibold text-[16px] tracking-tight ">
                 Joining information{' '}
@@ -48,20 +48,20 @@ export default function JoiningInfo({ joinInfo, showJoinInfo, closeJoinInfo }) {
                   />
                 </p>
               </div> */}
-              <div className="relative mt-4">
+              <div className="relative mt-4 ">
                 <input
                   type="text"
-                  className="w-full border border-[#D0D5DD] bg-[#F4F4F4] py-[2px] px-[3px] my-[4px] rounded-lg shadow-sm "
+                  className="lg:w-full w-[310px] border border-[#D0D5DD] bg-[#F4F4F4] py-[2px] px-[3px] my-[4px] rounded-lg shadow-sm "
                 />
-                <div className="absolute text-[9px] w-[340px] text-[#667085] left-2 bottom-[12px] font-inter tracking-tight text-nowrap">
-                  <p className="w-[300px] overflow-x-clip pl-2 text-[12px]">
+                <div className="absolute text-[9px] w-[200px] lg:w-[340px] text-[#667085] left-2 bottom-[12px] font-inter tracking-tight text-nowrap">
+                  <p className="w-[260px] lg:w-[300px] overflow-x-clip pl-2 md:text-[12px] sm:text-[10px]">
                     <span>{localStorage.getItem('NowLink')}</span>
                   </p>
                   <img
                     width={14}
                     src="/tabler_copy.svg"
                     alt=""
-                    className="absolute bottom-[1px] right-0"
+                    className="absolute lg:bottom-[1px] -right-[86px] bottom-[1px] lg:right-0 "
                     onClick={copyToClipboard}
                   />
                 </div>

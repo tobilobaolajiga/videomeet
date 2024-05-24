@@ -4,6 +4,7 @@ import LineChart from '../MainDashboard/LineChart.jsx';
 import RecentMeetings from '../MainDashboard/RecentMeetings';
 
 import BarChart from './BarChart.jsx';
+import FeatureUsage from './FeatureUsage.jsx';
 import PartInteraction from './PartInteraction.jsx';
 import ReportsHeader from './ReportsHeader.jsx';
 import ReportsMenu from './ReportsMenu';
@@ -23,7 +24,7 @@ export default function Reports() {
         </div>
         <div className="flex">
           <PartInteraction />
-          {/* <ArcGraph /> */}
+          <FeatureUsage />
         </div>
       </div>
     </div>

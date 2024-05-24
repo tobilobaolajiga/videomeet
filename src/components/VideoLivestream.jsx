@@ -21,10 +21,21 @@ export default function VideoLiveStream({
   setIsVideoOn,
 }) {
   const hostAgent = localStorage.getItem('hostAgent');
+  const navigate = useNavigate();
+  const meetingCode =
+    localStorage.getItem('meetingCode') === ''
+      ? ''
+      : localStorage.getItem('meetingCode');
 
   const [guestRequest, setGuestRequest] = useState(false);
   const socket = ioClient('wss://' + import.meta.env.VITE_BASE_URL_SOCKET);
   const roomId = localStorage.getItem('roomId');
+  useEffect(() => {
+    const link = window.location.href;
+    const code = link.substring(28, 48);
+    !roomId && navigate(`/check/${code}`);
+  });
+
   useEffect(() => {
     socket.on('connect', () => {
       console.log('Connected to server');
@@ -59,10 +70,6 @@ export default function VideoLiveStream({
   const videoId = localStorage.getItem('videoId');
   const token = localStorage.getItem('userToken');
   const userId = localStorage.getItem('userId');
-  const meetingCode =
-    localStorage.getItem('meetingCode') === ''
-      ? ''
-      : localStorage.getItem('meetingCode');
 
   const admitGuest = async () => {
     try {
@@ -98,6 +105,7 @@ export default function VideoLiveStream({
   const { state } = useLocation();
 
   useEffect(() => {
+    console.log('dissssssss', displayName);
     let script = document.createElement('script');
     const timeout = setTimeout(() => {
       setIsLoading(false);

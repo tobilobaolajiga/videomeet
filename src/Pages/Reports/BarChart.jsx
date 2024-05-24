@@ -1,7 +1,7 @@
 export default function BarChart() {
   return (
     <div>
-      <div className="ml-8 mr-4 rounded-lg shadow-md py-4 px-4 border my-2 font-inter">
+      <div className="mx-8 rounded-lg shadow-md py-4 px-4 border my-2 font-inter">
         <div className="border-b pb-4">
           <div className="flex gap-4 border bg-[#f6f6f6] text-[#1a1a1a] text-opacity-50 text-[12px]  py-[2px] px-[4px] w-fit rounded items-center">
             <p className="bg-white text-black font-semibold px-[8px] py-[4px] rounded">

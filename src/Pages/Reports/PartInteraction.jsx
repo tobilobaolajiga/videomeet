@@ -1,7 +1,7 @@
 export default function PartInteraction() {
   return (
     <div>
-      <div className="ml-8 mr-4 rounded-lg shadow-md py-4 px-4 border my-2 font-inter ">
+      <div className="ml-8 rounded-lg shadow-md py-4 px-4 border my-2 font-inter ">
         <div className="border-b pb-2">
           <p className="font-semibold">Participant interaction frequency</p>
           <p className="text-[12px] text-[#667085] ">
@@ -18,7 +18,7 @@ export default function PartInteraction() {
           </div>
         </div>
         <img
-          src="/chartone.svg"
+          src="/part.svg"
           alt=""
           className="mt-6 border-b pb-6"
           width={790}

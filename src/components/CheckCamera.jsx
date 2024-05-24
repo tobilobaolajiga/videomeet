@@ -18,13 +18,19 @@ export default function CheckCamera({
   showProfDrop,
   setProfileDrop,
   meetingLink,
+  displayName,
+  setDisplayName,
+  isVideoOn,
+  isAudioOn,
+  setIsAudioOn,
+  setIsVideoOn,
 }) {
+  const userData = JSON.parse(localStorage.getItem('userData'));
   const [loading, setLoading] = useState(false);
-  const [isVideoOn, setIsVideoOn] = useState(true);
-  const [isAudioOn, setIsAudioOn] = useState(true);
+
   const [micImg, setMicImg] = useState('/mic.svg');
   const [vidImg, setVidImg] = useState('/video.svg');
-  const [displayName, setDisplayName] = useState('');
+
   const [videoLivestream, setVideoLiveStream] = useState(false);
 
   const navigate = useNavigate();

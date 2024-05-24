@@ -1,7 +1,21 @@
+import axios from 'axios';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { ClipLoader } from 'react-spinners';
+import ResetSuccess from './ResetSuccess';
 
-export default function ResetPassword({ sendOTP, resendOTP, showResetPwd }) {
+export default function ResetPassword({
+  resendOTP,
+  showResetPwd,
+  userMail,
+  OTP,
+  setResetPwd,
+}) {
+  const [resetSuccess, setResetSuccess] = useState(false);
+  const showResetSuccess = () => {
+    setResetPwd(false);
+    setResetSuccess(!resetSuccess);
+  };
   const [pwd, setPwd] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
   const [error, setError] = useState('');
@@ -58,6 +72,37 @@ export default function ResetPassword({ sendOTP, resendOTP, showResetPwd }) {
     setPwd(e.target.value);
     console.log(e.target.value);
     changeColor(e);
+  };
+
+  const resetPassword = async () => {
+    setLoading(true);
+    console.log(userMail);
+    console.log(OTP);
+    console.log(pwd);
+    try {
+      const response = await axios.post(
+        import.meta.env.VITE_BASE_URL + 'auth/reset-password',
+        {
+          email: userMail,
+          otp: OTP,
+          password: pwd,
+        }
+      );
+
+      const data = response;
+
+      console.log(data);
+
+      setLoading(false);
+      setResetSuccess(true);
+    } catch (error) {
+      setLoading(false);
+
+      setError(error.response.data.message);
+      toast.error(error.response.data.message);
+      console.log(error.response.data.status);
+      console.log(error.response.data.message);
+    }
   };
 
   return (
@@ -207,7 +252,7 @@ export default function ResetPassword({ sendOTP, resendOTP, showResetPwd }) {
                 opacity: pwd && confirm && pwd === confirmPass ? 1 : 0.5,
               }}
               className="bg-[#36AAD9] text-white w-full py-[8px] rounded-md mt-[12px] text-[10px] opacity-50"
-              onClick={sendOTP}
+              onClick={resetPassword}
             >
               {loading ? (
                 <ClipLoader color="#36D7B7" loading={loading} size={18} />
@@ -231,6 +276,7 @@ export default function ResetPassword({ sendOTP, resendOTP, showResetPwd }) {
           </div>
         </div>
       </div>
+      {resetSuccess && <ResetSuccess showResetSuccess={showResetSuccess} />}
     </div>
   );
 }

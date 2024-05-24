@@ -1,6 +1,6 @@
 export default function ReportsSquare() {
   return (
-    <div className="flex w-fit ml-6">
+    <div className="flex w-fit mx-6">
       <div className="shadow-lg w-[257px] px-4 py-4 z-50 rounded-lg m-2 font-inter">
         <div className="flex justify-between ">
           <div className="flex ">

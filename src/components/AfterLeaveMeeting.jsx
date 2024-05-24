@@ -81,6 +81,7 @@ export default function AfterLeaveMeeting({
     'userAgent',
     'videoId',
     'meetId',
+    'roomId',
   ];
   const userId = localStorage.getItem('userId');
   const ref = localStorage.getItem('ref');

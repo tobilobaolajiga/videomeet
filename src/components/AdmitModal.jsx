@@ -25,9 +25,6 @@ export default function AdmitModal({
             <p className="text-[12px] font-DMSans font-semibold text-black">
               {localStorage.getItem('admitMsg')}
             </p>
-            <p className="text-[11px] text-[#667185] font-DMSans mt-[4px] ">
-              {displayName}
-            </p>
           </div>
           <button
             className="text-white bg-[#36aad9] px-2 py-[6px] text-[12px] rounded font-DMSans"

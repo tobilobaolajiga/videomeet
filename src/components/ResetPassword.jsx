@@ -251,7 +251,7 @@ export default function ResetPassword({
               style={{
                 opacity: pwd && confirm && pwd === confirmPass ? 1 : 0.5,
               }}
-              className="bg-[#36AAD9] text-white w-full py-[8px] rounded-md mt-[12px] text-[10px] opacity-50"
+              className="bg-[#36AAD9] text-white w-full py-[8px] mb-4 rounded-md mt-[12px] text-[10px] opacity-50"
               onClick={resetPassword}
             >
               {loading ? (
@@ -260,19 +260,19 @@ export default function ResetPassword({
                 'Continue'
               )}
             </button>
-            <p className="text-center pt-4 text-[#667085] text-[9px]">
+            {/* <p className="text-center pt-4 text-[#667085] text-[9px]">
               Didn't receive the code?{' '}
               <span
                 className="text-[#36AAD9] underline font-semibold"
                 onClick={resendOTP}
-              >
-                {/* {resendOtp ? 'OTP sent!' : 'Click to resend code'} */}
-              </span>
+              > */}
+            {/* {resendOtp ? 'OTP sent!' : 'Click to resend code'} */}
+            {/* </span>
             </p>
             <p className=" text-[#667085] text-[9px] opacity-60 flex gap-2 items-center justify-center pt-[10px]">
               <img src="/arrowLef.svg" alt="" width={9} />
               Back to create account
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

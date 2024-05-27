@@ -119,14 +119,22 @@ export default function OTP({
         <div>
           {otp && (
             <div className="fixed z-50 top-0 left-0 w-full h-screen sm:bg-white  lg:bg-[#000000] lg:bg-opacity-25 cursor-pointer flex justify-center ">
-              <div className="bg-white m-auto lg:w-fit lg:h-fit w-2/3 h-fit rounded-2xl font-inter sm:shadow-lg pb-4">
+              <div className="bg-white m-auto w-fit lg:h-fit h-fit rounded-2xl font-inter sm:shadow-lg pb-4">
                 <div className="flex flex-col items-center py-[20px] border-b">
-                  <img
-                    src="/TM30.svg"
-                    alt=""
-                    width={60}
-                    className="mt-[12px]"
-                  />
+                  <div className="relative w-full flex justify-center items-center">
+                    <img
+                      src="/TM30.svg"
+                      alt=""
+                      width={60}
+                      className="mt-[12px]"
+                    />
+                    <img
+                      src="/cross.svg"
+                      alt=""
+                      width={14}
+                      className="absolute top-[4px] right-[25px]"
+                    />
+                  </div>
                   <p className="text-[16px] font-bold pt-[12px] text-[#101828]">
                     Request Code{' '}
                   </p>

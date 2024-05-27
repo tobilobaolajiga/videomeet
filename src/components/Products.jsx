@@ -49,10 +49,24 @@ export default function Products({ products, showProducts }) {
                 </a>
               </div>
               <div className="bg-white rounded-md px-2 py-2 basis-1/6 w-[100px] h-[60px] flex justify-center">
-                <img src="/payattitude.svg" alt="" width={80} />
+                <a
+                  className="flex justify-center"
+                  href="https://payattitude.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src="/payattitude.svg" alt="" width={80} />{' '}
+                </a>
               </div>
               <div className="bg-white rounded-md px-2 py-2 basis-1/6 w-[100px] h-[60px] flex justify-center">
-                <img src="/pos.svg" alt="" width={80} />
+                <a
+                  className="flex justify-center"
+                  href="https://softpos.tm30.net"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src="/pos.svg" alt="" width={80} />
+                </a>
               </div>
               <div className="bg-white rounded-md px-2 py-2 basis-1/6  w-[100px] h-[60px] flex justify-center">
                 <img src="/bi.svg" alt="" width={50} />
@@ -93,7 +107,14 @@ export default function Products({ products, showProducts }) {
                 <img src="/partyTime.svg" alt="" width={80} />
               </div>
               <div className="bg-white rounded-md px-2 py-2 basis-1/6 w-[100px] h-[60px] flex justify-center">
-                <img src="/homes.svg" alt="" width={80} />
+                <a
+                  className="flex justify-center"
+                  href="https://residify.ng/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src="/homes.svg" alt="" width={80} />
+                </a>
               </div>
               <div className="bg-white rounded-md px-2 py-2 basis-1/6  w-[100px] h-[60px] flex justify-center">
                 <a

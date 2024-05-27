@@ -5,7 +5,11 @@ export default function MailReset({
   setUserMail,
   otpReset,
   otpLoading,
+  setMailReset,
 }) {
+  const closeMailReset = () => {
+    setMailReset(false);
+  };
   return (
     <div>
       <div className=" fixed z-50 top-0 left-0 w-full h-screen sm:bg-white  lg:bg-[#000000] lg:bg-opacity-25 cursor-pointer flex justify-center ">
@@ -18,6 +22,7 @@ export default function MailReset({
                 alt=""
                 width={14}
                 className="absolute top-[4px] right-[25px]"
+                onClick={closeMailReset}
               />
             </div>
 

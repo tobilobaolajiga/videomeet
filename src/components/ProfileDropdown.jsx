@@ -46,12 +46,7 @@ export default function ProfileDropdown({
   };
   const [mailReset, setMailReset] = useState(false);
   const [resetOtp, setResetOtp] = useState(false);
-  const [resetPwd, setResetPwd] = useState(false);
-  const showResetPwd = () => {
-    setResetPwd(!resetPwd);
-    setResetOtp(false);
-    profileDrop ? !showProfDrop() : '';
-  };
+
   const showMailReset = () => {
     setMailReset(!mailReset);
     profileDrop ? !showProfDrop() : '';
@@ -122,15 +117,16 @@ export default function ProfileDropdown({
           setUserMail={setUserMail}
           otpReset={otpReset}
           otpLoading={otpLoading}
+          setMailReset={setMailReset}
         />
       )}
       {resetOtp && (
         <ResetOTP
-          resetPwd={resetPwd}
           resendOTP={resendOTP}
-          showResetPwd={showResetPwd}
-          setResetPwd={setResetPwd}
           userMail={userMail}
+          setResetOtp={setResetOtp}
+          resetOtp={resetOtp}
+          otpReset={otpReset}
         />
       )}
     </div>

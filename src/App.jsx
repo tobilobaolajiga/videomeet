@@ -19,6 +19,7 @@ import AdminLogin from './components/AdminLogin';
 import ForgotAdminPass from './components/ForgotPassAdmin';
 import Meetings from './Pages/Meetings/Meetings';
 import Reports from './Pages/Reports/Reports';
+import Agency from './ProductModals/Agency';
 
 export default function App() {
   const [mobileModal, setMobileModal] = useState(false);
@@ -430,6 +431,7 @@ export default function App() {
           <Route path="/participants" element={<Participants />} />
           <Route path="/meetings" element={<Meetings />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/agency" element={<Agency />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -55,7 +55,7 @@ export default function Scheduled({
     <div>
       {scheduled && (
         <div className="fixed z-50 top-0 left-0 w-full h-screen sm:bg-white  lg:bg-[#000000] lg:bg-opacity-25 cursor-pointer sm:flex sm:justify-center sm:items-center ">
-          <div className="w-fit md:w-[350px] md:h-[420px] rounded-xl h-fit shadow-lg bg-white relative pb-6">
+          <div className="w-fit md:w-[350px] md:h-[420px] rounded-xl h-fit shadow-lg bg-white relative pb-10">
             <div className="border-b">
               <img
                 onClick={closeScheduled}
@@ -166,7 +166,7 @@ export default function Scheduled({
               </p>
               <p className="text-[9px] my-4 font-DMSans">{desc}</p>
             </div>
-            <div className="mx-6 mt-2 text-[#344054]">
+            <div className="mx-6 mt-2 text-[#344054] ">
               <p className="flex gap-2 text-[12px] font-medium mt-4 font-inter">
                 <img src="/BellRinging.svg" alt="" width={15} />
                 Reminder

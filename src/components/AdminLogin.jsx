@@ -49,16 +49,46 @@ export default function AdminLogin({
             },
           }
         );
-        console.log(response?.data?.data?.user);
-        localStorage.setItem(
+        console.log(response?.data?.data?.user?.fullName);
+        sessionStorage.setItem(
           'adminData',
           JSON.stringify(response?.data?.data?.user)
         );
-        localStorage.setItem('userId', response?.data?.data?.user?.id);
+        sessionStorage.setItem('userId', response?.data?.data?.user?.id);
         setLoading(false);
         console.log(response);
       } catch (error) {
         setLoading(false);
+        toast.error(error.message);
+      }
+      try {
+        const token = localStorage.getItem('adminToken');
+        const response = await axios.get(
+          import.meta.env.VITE_BASE_URL + 'admin/users',
+
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response);
+      } catch (error) {
+        toast.error(error.message);
+      }
+      try {
+        const token = localStorage.getItem('adminToken');
+        const response = await axios.get(
+          import.meta.env.VITE_BASE_URL + 'admin/meeting',
+
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response);
+      } catch (error) {
         toast.error(error.message);
       }
     } catch (error) {

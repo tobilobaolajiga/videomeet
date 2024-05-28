@@ -234,7 +234,7 @@ export default function App() {
       toast.success(response.data.message);
       localStorage.setItem(
         'NowLink',
-        `${window.location.origin}/check/${response?.data?.data?.meetingId}`
+        `${window.location.origin}/video/${response?.data?.data?.meetingId}`
       );
       setjoinInfo(true);
       setLinkLoading(false);

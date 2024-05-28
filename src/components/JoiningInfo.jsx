@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 export default function JoiningInfo({ joinInfo, showJoinInfo, closeJoinInfo }) {
   const [copied, setCopied] = useState(false);
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(localStorage.getItem('meetingId'));
+    navigator.clipboard.writeText(localStorage.getItem('NowLink'));
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
     toast.success('Copied!');
@@ -53,7 +53,7 @@ export default function JoiningInfo({ joinInfo, showJoinInfo, closeJoinInfo }) {
                   type="text"
                   className="lg:w-full w-[310px] border border-[#D0D5DD] bg-[#F4F4F4] py-[2px] px-[3px] my-[4px] rounded-lg shadow-sm "
                 />
-                <div className="absolute text-[9px] w-[200px] lg:w-[340px] text-[#667085] left-2 bottom-[12px] font-inter tracking-tight text-nowrap">
+                <div className="absolute text-[9px] w-[200px] lg:w-[340px] text-[#667085] left-2 bottom-[10px] font-inter tracking-tight text-nowrap">
                   <p className="w-[260px] lg:w-[300px] overflow-x-clip pl-2 md:text-[12px] sm:text-[10px]">
                     <span>{localStorage.getItem('NowLink')}</span>
                   </p>

@@ -50,6 +50,7 @@ export default function ProfileNav({
         </div>
       </div>
       <Products products={products} showProducts={showProducts} />
+      {/* {mobileModal && ( */}
       {mobileModal && (
         <MobileModal
           showMobileModal={showMobileModal}
@@ -57,6 +58,7 @@ export default function ProfileNav({
           showProducts={showProducts}
         />
       )}
+      {/* )} */}
     </div>
   );
 }

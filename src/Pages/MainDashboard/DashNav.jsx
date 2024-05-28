@@ -18,9 +18,6 @@ export default function DashNav() {
             </p>
             <p className="text-[10px] font-[#999999]">System Admin</p>
           </div>
-          <div>
-            <img src="/dropdown.svg" alt="" width={12} />
-          </div>
         </div>
       </div>
     </div>

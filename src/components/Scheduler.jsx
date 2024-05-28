@@ -167,7 +167,7 @@ export default function Scheduler({
       toast.success(response.data.message);
       localStorage.setItem(
         'meetingId',
-        `${window.location.origin}/check/${response?.data?.data?.meetingId}`
+        `${window.location.origin}/video/${response?.data?.data?.meetingId}`
       );
       localStorage.setItem(
         'guests',

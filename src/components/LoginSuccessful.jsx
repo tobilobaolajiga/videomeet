@@ -13,6 +13,8 @@ import toast from 'react-hot-toast';
 import { v4 as uuidv4 } from 'uuid';
 import Reviews from './Reviews';
 import JoiningInfo from './JoiningInfo';
+import MobileModal from './MobileModal';
+import MobileSchedule from './MobileSchedule';
 export default function LoginSuccessful({
   schedule,
   showSchedule,
@@ -22,8 +24,8 @@ export default function LoginSuccessful({
   meetingLink,
   products,
   showProducts,
-  mobileModal,
-  showMobileModal,
+  mobileSchedule,
+  showMobileSchedule,
   pwd,
   setPwd,
   sendOTP,
@@ -139,8 +141,8 @@ export default function LoginSuccessful({
             setProfileDrop={setProfileDrop}
             showProducts={showProducts}
             products={products}
-            // mobileModal={mobileModal}
-            // showMobileModal={showMobileModal}
+            // mobileModal={mobileSchedule}
+            // showMobileModal={showMobileSchedule}
           />
         </div>
         <div className="flex flex-col lg:flex-row bg-white items-center justify-between">

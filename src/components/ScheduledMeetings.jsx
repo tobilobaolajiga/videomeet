@@ -17,7 +17,7 @@ export default function ScheduledMeeting({
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(
-      `${window.location.origin}/check/${meetingDetails.meetingId}`
+      `${window.location.origin}/video/${meetingDetails.meetingId}`
     );
     toast.success('Copied!');
 
@@ -65,7 +65,7 @@ export default function ScheduledMeeting({
             />
             <div className="absolute text-[9px]  text-[#667085] left-2 bottom-[12px] font-inter tracking-tight text-nowrap w-full">
               <p className=" overflow-x-clip w-[150px] md:w-4/5">
-                {`${window.location.origin}/check/${meetingDetails.meetingId}`}
+                {`${window.location.origin}/video/${meetingDetails.meetingId}`}
               </p>
               <img
                 width={14}

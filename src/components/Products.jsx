@@ -4,7 +4,7 @@ import Pmb from '../ProductModals/Pmb';
 import Hope from '../ProductModals/Hope';
 import PayAttitude from '../ProductModals/PayAttitude';
 import Tmsaas from '../ProductModals/Tmsaas';
-import BackUpCash from '../ProductModals/backupCash';
+import BackUpCash from '../ProductModals/BackupCash';
 import Payarena from '../ProductModals/Payarena';
 import MoneyField from '../ProductModals/MoneyField';
 

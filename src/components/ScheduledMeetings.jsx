@@ -20,8 +20,6 @@ export default function ScheduledMeeting({
       `${window.location.origin}/video/${meetingDetails.meetingId}`
     );
     toast.success('Copied!');
-
-    // setTimeout(() => setCopied(false), 2000);
   };
   return (
     <div>
@@ -119,25 +117,6 @@ export default function ScheduledMeeting({
                 )
               )}
             </ul>
-
-            {/* <div className="flex gap-2 items-center mt-2">
-                <img src="/A.svg" alt="" />
-                <p className="text-[9px]  ">
-                  Adekunle Samson <br />
-                  <span className="text-[8px] font-normal text-[#667085]">
-                    Adekunlesam007@gmail.com
-                  </span>
-                </p>
-              </div>
-              <div className="flex gap-2 items-center mt-2">
-                <img src="/T.svg" alt="" />
-                <p className="text-[9px] font-semibold font-DMSans">
-                  Tomiwa Williams <br />
-                  <span className="text-[8px] font-normal text-[#667085]">
-                    Tomwilly1@gmail.com
-                  </span>
-                </p>
-              </div> */}
           </div>
           <div className="mx-6 mt-2 text-[#344054]">
             <p className="flex gap-2 text-[10px] font-medium mt-4 font-inter">

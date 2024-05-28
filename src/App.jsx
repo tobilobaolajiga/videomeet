@@ -8,12 +8,8 @@ import axios from 'axios';
 import { Toaster, toast } from 'react-hot-toast';
 import CheckCamera from './components/CheckCamera';
 import AfterLeaveMeeting from './components/AfterLeaveMeeting';
-
 import 'animate.css';
 import Dashboard from './Pages/MainDashboard/Dashboard';
-import AccountCreated from './components/AccountCreated';
-
-import Reviews from './components/Reviews';
 import Participants from './Pages/Participants/Participants';
 import AdminLogin from './components/AdminLogin';
 import ForgotAdminPass from './components/ForgotPassAdmin';
@@ -67,8 +63,6 @@ export default function App() {
     setLogin(!login);
     setNewAccount(false);
     setMobileModal(false);
-    // const body = document.querySelector('#body');
-    // body.style.position = 'fixed';
   };
 
   const closeLogin = () => {
@@ -76,9 +70,6 @@ export default function App() {
     setUserEmail('');
     setUserPassword('');
     closeOptions();
-
-    // const body = document.querySelector('#body');
-    // body.style.position = '';
   };
 
   const [schedule, setSchedule] = useState(false);
@@ -239,13 +230,7 @@ export default function App() {
       );
       setjoinInfo(true);
       setLinkLoading(false);
-      // localStorage.setItem(
-      //   'meetingId',
-      //   `${window.location.origin}/check/${response?.data?.referenceId}`
-      // );
-      // localStorage.setItem('checkId', `/check/${response?.data?.referenceId}`);
 
-      // localStorage.setItem('refId', response?.data?.referenceId);
       console.log(response?.data?.data?.meetingLink);
       console.log(response?.data?.referenceId);
     } catch (error) {
@@ -256,14 +241,10 @@ export default function App() {
     }
   };
   const [joinInfo, setjoinInfo] = useState(false);
-  // const [bg, setBg] = useState('bg- #ffffff');
-  // const [text, setText] = useState('text-#454545');
 
   const showJoinInfo = () => {
     meetingLink();
-    // setBg('bg-#36aad9');
-    // setText('text-#ffffff');
-    // setjoinInfo(!joinInfo);
+
     setOptions(options);
     const body = document.querySelector('#body');
     body.style.position = 'fixed';

@@ -18,6 +18,7 @@ import Reports from './Pages/Reports/Reports';
 import Agency from './ProductModals/Agency';
 
 export default function App() {
+  const userData = JSON.parse(localStorage.getItem('userData'));
   const [mobileModal, setMobileModal] = useState(false);
   const [mobileSchedule, setMobileSchedule] = useState(false);
   const [resScheduler, setResScheduler] = useState(true);
@@ -164,7 +165,7 @@ export default function App() {
   const closeCreate = () => {
     showCreateAccount();
   };
-  const userData = JSON.parse(localStorage.getItem('userData'));
+
   // const meetingName = JSON.parse(
   //   localStorage.getItem('meetingDeets')
   // ).meetingName;
@@ -184,7 +185,8 @@ export default function App() {
       .padStart(2, '0')}-${currentDate
       .getDate()
       .toString()
-      .padStart(2, '0')}T${(currentDate.getHours() + 1)
+      .padStart(2, '0')}T${currentDate
+      .getHours()
       .toString()
       .padStart(2, '0')}:${currentDate
       .getMinutes()
@@ -235,7 +237,7 @@ export default function App() {
     } catch (error) {
       setLinkLoading(false);
       toast.error(error.response.data.message);
-      console.log(error.status);
+
       console.log(error.response.data.message);
     }
   };

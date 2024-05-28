@@ -234,9 +234,9 @@ export default function App() {
       console.log(response?.data?.referenceId);
     } catch (error) {
       setLinkLoading(false);
-      toast.error(error.message);
+      toast.error(error.response.data.message);
       console.log(error.status);
-      console.log(error.message);
+      console.log(error.response.data.message);
     }
   };
   const [joinInfo, setjoinInfo] = useState(false);

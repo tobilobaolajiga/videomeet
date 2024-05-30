@@ -37,8 +37,9 @@ export default function ProfileDropdown({
       const data = response;
       console.log(data);
       setLoading(false);
-      navigate('/');
+
       setProfileDrop(false);
+      navigate('/');
     } catch (error) {
       setLoading(false);
       toast.error(error.response.data.message);

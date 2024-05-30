@@ -10,8 +10,8 @@ export default function ScheduledMeeting({
 }) {
   const meetingRef = localStorage.getItem('meetingRef}');
   const meetingDetails = JSON.parse(localStorage.getItem('meetingDetails'));
-  const startTime = new Date(meetingDetails.meetingTime);
-  const endTime = new Date(meetingDetails.endTime);
+  const startTime = new Date(meetingDetails?.meetingTime);
+  const endTime = new Date(meetingDetails?.endTime);
 
   const [copied, setCopied] = useState(false);
 

@@ -59,26 +59,30 @@ export default function MobileSchedule({
               Scheduled meetings
             </p>
             <ul className="text-[11px] text-[#344054] tracking-tight">
-              {events.map((event, index) => (
-                <li
-                  key={event.id}
-                  className="mb-4 flex items-center gap-2 font-DMSans font-medium text-[#344054] cursor-pointer "
-                >
-                  {' '}
-                  <span
-                    alt=""
-                    style={{ backgroundColor: event.backgroundColor }}
-                    className=" w-[15px] h-[15px] border rounded-full"
-                  ></span>
-                  <p
-                    className="flex items-center-justify-between w-full relative"
-                    onClick={() => showMeeting(event.id)}
+              {events.map((event, index) =>
+                event.title === 'Meeting' ? (
+                  ''
+                ) : (
+                  <li
+                    key={event.id}
+                    className="mb-4 flex items-center gap-2 font-DMSans font-medium text-[#344054] cursor-pointer "
                   >
                     {' '}
-                    {event.title}
-                  </p>
-                </li>
-              ))}
+                    <span
+                      alt=""
+                      style={{ backgroundColor: event.backgroundColor }}
+                      className=" w-[15px] h-[15px] border rounded-full"
+                    ></span>
+                    <p
+                      className="flex items-center-justify-between w-full relative"
+                      onClick={() => showMeeting(event.id)}
+                    >
+                      {' '}
+                      {event.title}
+                    </p>
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </div>

@@ -10,6 +10,7 @@ export default function OTP({
   showOtp,
   userId,
   email,
+  pwd,
   setNewAccount,
   showCreateAccount,
   closeCreate,
@@ -228,6 +229,8 @@ export default function OTP({
           <AccountCreated
             accountSuccess={accountSuccess}
             showLogin={showLogin}
+            email={email}
+            pwd={pwd}
           />
         </div>
       </div>

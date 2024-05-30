@@ -16,6 +16,7 @@ import ForgotAdminPass from './components/ForgotPassAdmin';
 import Meetings from './Pages/Meetings/Meetings';
 import Reports from './Pages/Reports/Reports';
 import Agency from './ProductModals/Agency';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function App() {
   const userData = JSON.parse(localStorage.getItem('userData'));
@@ -175,48 +176,19 @@ export default function App() {
   );
   const token = localStorage.getItem('userToken');
   const [linkLoading, setLinkLoading] = useState(false);
+
   const meetingLink = async () => {
     console.log(userData?.email);
+    console.log(token);
     setLinkLoading(true);
-    const startTime = `${currentDate.getFullYear()}-${(
-      currentDate.getMonth() + 1
-    )
-      .toString()
-      .padStart(2, '0')}-${currentDate
-      .getDate()
-      .toString()
-      .padStart(2, '0')}T${currentDate
-      .getHours()
-      .toString()
-      .padStart(2, '0')}:${currentDate
-      .getMinutes()
-      .toString()
-      .padStart(2, '0')}:00Z`;
-
-    const endTime = `${nextDate.getFullYear()}-${(nextDate.getMonth() + 1)
-      .toString()
-      .padStart(2, '0')}-${nextDate.getDate().toString().padStart(2, '0')}T${(
-      nextDate.getHours() + 1
-    )
-      .toString()
-      .padStart(2, '0')}:${nextDate
-      .getMinutes()
-      .toString()
-      .padStart(2, '0')}:00Z`;
-    console.log(nextDate);
-    console.log(startTime);
-    console.log(endTime);
-
+    const hostAgentString = uuidv4();
+    localStorage.setItem('hostAgent', hostAgentString);
+    console.log('pppp', hostAgentString);
     try {
       const response = await axios.post(
-        import.meta.env.VITE_BASE_URL + 'meeting/schedule-meeting',
-        {
-          emails: [userData.email],
-          meetingTime: startTime,
-          meetingName: 'Meeting',
-          endTime: endTime,
-          color: 'blue',
-        },
+        import.meta.env.VITE_BASE_URL + 'meeting/createinstant',
+        {},
+
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -225,9 +197,11 @@ export default function App() {
       );
       console.log(response?.data?.data);
       toast.success(response.data.message);
+      const link = response?.data?.data;
+      const nowCode = link.substring(28, 50);
       localStorage.setItem(
         'NowLink',
-        `${window.location.origin}/video/${response?.data?.data?.meetingId}`
+        `${window.location.origin}/video/${nowCode}`
       );
       setjoinInfo(true);
       setLinkLoading(false);
@@ -247,8 +221,6 @@ export default function App() {
     meetingLink();
 
     setOptions(options);
-    const body = document.querySelector('#body');
-    body.style.position = 'fixed';
   };
 
   const closeJoinInfo = () => {

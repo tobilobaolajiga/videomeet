@@ -11,14 +11,7 @@ export default function ProfileNav({
   mobileModal,
   showMobileModal,
 }) {
-  const refreshed = useRef(false);
   const userData = JSON.parse(localStorage.getItem('userData'));
-  // useEffect(() => {
-  //   if (!refreshed.current) {
-  //     // window.location.assign(window.location.pathname);
-  //     refreshed.current = true;
-  //   }
-  // }, []);
 
   return (
     <div>

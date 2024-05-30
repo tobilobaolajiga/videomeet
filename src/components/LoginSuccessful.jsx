@@ -40,9 +40,11 @@ export default function LoginSuccessful({
   isVideoOn,
   setIsAudioOn,
   setIsVideoOn,
+  you,
 }) {
-  const [options, setOptions] = useState(false);
   const userData = JSON.parse(localStorage.getItem('userData'));
+  const [options, setOptions] = useState(false);
+
   const showOptions = () => {
     setOptions(!options);
   };
@@ -52,12 +54,12 @@ export default function LoginSuccessful({
   const navigate = useNavigate();
 
   const Instant = async () => {
+    console.log(userData);
     setLoading(true);
     const hostAgentString = uuidv4();
     localStorage.setItem('hostAgent', hostAgentString);
     console.log('pppp', hostAgentString);
 
-    // meetingLink();
     try {
       const response = await axios.post(
         import.meta.env.VITE_BASE_URL + 'meeting/createinstant',

@@ -266,6 +266,7 @@ export default function CreatePassword({
         resendOTP={resendOTP}
         showOtp={showOtp}
         email={email}
+        pwd={pwd}
         setNewaccount={setNewAccount}
         showCreateAccount={showCreateAccount}
         closeCreate={closeCreate}

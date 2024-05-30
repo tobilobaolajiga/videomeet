@@ -49,9 +49,9 @@ export default function Login({
       setLoading(false);
       const ref = localStorage.getItem('ref');
       console.log(ref);
-      navigate(`/login/${ref}`);
+
       console.log(data);
-      console.log(localStorage.getItem('userData'));
+
       console.log(localStorage.getItem('userToken'));
       console.log(data?.data?.data?.token?.refreshToken);
       try {
@@ -70,8 +70,10 @@ export default function Login({
           'userData',
           JSON.stringify(response?.data?.data?.user)
         );
+
         localStorage.setItem('userId', response?.data?.data?.user?.id);
         setLoading(false);
+        navigate(`/login/${ref}`);
         console.log(response);
       } catch (error) {
         setLoading(false);

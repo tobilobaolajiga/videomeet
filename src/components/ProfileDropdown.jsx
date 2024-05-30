@@ -35,10 +35,10 @@ export default function ProfileDropdown({
         }
       );
       const data = response;
+      setProfileDrop(false);
       console.log(data);
       setLoading(false);
-
-      setProfileDrop(false);
+      localStorage.removeItem('userToken');
       navigate('/');
     } catch (error) {
       setLoading(false);

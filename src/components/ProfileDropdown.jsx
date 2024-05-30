@@ -39,6 +39,8 @@ export default function ProfileDropdown({
       console.log(data);
       setLoading(false);
       localStorage.removeItem('userToken');
+      localStorage.removeItem('userData');
+      localStorage.removeItem('userId');
       navigate('/');
     } catch (error) {
       setLoading(false);

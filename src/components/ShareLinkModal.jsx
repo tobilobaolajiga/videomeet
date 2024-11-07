@@ -4,7 +4,6 @@ export default function ShareLinkModal({
   shareLink,
   showShare,
   setShareLink,
-  meetingCode,
   meetingLink,
 }) {
   const [currentDate, setCurrentDate] = useState();
@@ -24,6 +23,8 @@ export default function ShareLinkModal({
     return () => clearInterval(interval); // Cleanup function
   }, []);
   const copyToClipboard = () => {
+    const url = window.location.href;
+    const meetingCode = url.substring(28, 65);
     navigator.clipboard.writeText(`https://meet.tm30.net/video/${meetingCode}`);
     setCopied(true);
     toast.success('Copied!');

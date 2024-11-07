@@ -302,7 +302,6 @@ export default function VideoLiveStream({
                 shareLink={shareLink}
                 showShare={showShare}
                 setShareLink={setShareLink}
-                meetingCode={meetingCode}
               />
             )}
             {!jitsiLoading && (
